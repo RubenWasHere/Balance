@@ -145,7 +145,7 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                         child: Image.network(
-                                          'https://www.shutterstock.com/shutterstock/videos/1087990891/thumb/1.jpg?ip=x480',
+                                          '',
                                           width: double.infinity,
                                           height: 230.0,
                                           fit: BoxFit.cover,
@@ -202,7 +202,7 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                         child: Image.network(
-                                          'https://static.thenounproject.com/png/736218-200.png',
+                                          '',
                                           width: double.infinity,
                                           height: 230.0,
                                           fit: BoxFit.cover,
