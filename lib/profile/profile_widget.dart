@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -104,12 +103,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           height: 90.0,
                           decoration: BoxDecoration(
                             color: Color(0x00FFFFFF),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: Image.asset(
-                                'assets/images/BALANCE_(1).png',
-                              ).image,
-                            ),
                             shape: BoxShape.circle,
                             border: Border.all(
                               color: Color(0xFFFF9200),
@@ -122,10 +115,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             child: AuthUserStreamWidget(
                               builder: (context) => ClipRRect(
                                 borderRadius: BorderRadius.circular(50.0),
-                                child: CachedNetworkImage(
-                                  fadeInDuration: Duration(milliseconds: 500),
-                                  fadeOutDuration: Duration(milliseconds: 500),
-                                  imageUrl: currentUserPhoto,
+                                child: Image.network(
+                                  valueOrDefault<String>(
+                                    currentUserPhoto,
+                                    'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
+                                  ),
                                   width: 60.0,
                                   height: 60.0,
                                   fit: BoxFit.cover,
@@ -233,10 +227,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           }
                         }
 
-                        if (!_model.isDataUploading) {
-                          return;
-                        }
-
                         await currentUserReference!
                             .update(createUsersRecordData(
                           photoUrl: _model.uploadedFileUrl,
@@ -254,8 +244,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Edit Profile Picture',
-                              style: FlutterFlowTheme.of(context).labelMedium,
+                              'Change Picture',
+                              style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
                           Expanded(
@@ -299,8 +289,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'Edit Username',
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            'Change Username',
+                            style: FlutterFlowTheme.of(context).bodyLarge,
                           ),
                         ),
                         Expanded(
@@ -343,7 +333,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Change Password',
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context).bodyLarge,
                           ),
                         ),
                         Expanded(
@@ -422,8 +413,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Log Out',
-                              style: FlutterFlowTheme.of(context).labelMedium,
+                              'Logout',
+                              style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
                           Expanded(

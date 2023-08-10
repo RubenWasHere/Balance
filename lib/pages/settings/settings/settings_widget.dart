@@ -120,7 +120,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           Duration(milliseconds: 500),
                                       fadeOutDuration:
                                           Duration(milliseconds: 500),
-                                      imageUrl: currentUserPhoto,
+                                      imageUrl: valueOrDefault<String>(
+                                        currentUserPhoto,
+                                        'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
+                                      ),
                                       width: 60.0,
                                       height: 60.0,
                                       fit: BoxFit.cover,
