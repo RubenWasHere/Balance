@@ -7,25 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'login2_model.dart';
-export 'login2_model.dart';
+import 'sign_up_model.dart';
+export 'sign_up_model.dart';
 
-class Login2Widget extends StatefulWidget {
-  const Login2Widget({Key? key}) : super(key: key);
+class SignUpWidget extends StatefulWidget {
+  const SignUpWidget({Key? key}) : super(key: key);
 
   @override
-  _Login2WidgetState createState() => _Login2WidgetState();
+  _SignUpWidgetState createState() => _SignUpWidgetState();
 }
 
-class _Login2WidgetState extends State<Login2Widget> {
-  late Login2Model _model;
+class _SignUpWidgetState extends State<SignUpWidget> {
+  late SignUpModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Login2Model());
+    _model = createModel(context, () => SignUpModel());
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
@@ -630,7 +630,7 @@ class _Login2WidgetState extends State<Login2Widget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Home');
+                                          context.pushNamed('SignIn');
                                         },
                                         child: RichText(
                                           text: TextSpan(

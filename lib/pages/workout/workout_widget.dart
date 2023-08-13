@@ -238,7 +238,7 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   context.pushNamed(
-                                    'Login2',
+                                    'SignUp',
                                     extra: <String, dynamic>{
                                       kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,

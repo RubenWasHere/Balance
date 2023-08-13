@@ -78,13 +78,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : Login2Widget(),
+          appStateNotifier.loggedIn ? NavBarPage() : SignUpWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : Login2Widget(),
+              appStateNotifier.loggedIn ? NavBarPage() : SignUpWidget(),
         ),
         FFRoute(
           name: 'Health',
@@ -99,9 +99,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SettingsWidget(),
         ),
         FFRoute(
-          name: 'Login2',
-          path: '/login2',
-          builder: (context, params) => Login2Widget(),
+          name: 'SignUp',
+          path: '/signUp',
+          builder: (context, params) => SignUpWidget(),
         ),
         FFRoute(
           name: 'Workout',
@@ -120,6 +120,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Profile',
           path: '/profile',
           builder: (context, params) => ProfileWidget(),
+        ),
+        FFRoute(
+          name: 'Login3',
+          path: '/login3',
+          builder: (context, params) => Login3Widget(),
+        ),
+        FFRoute(
+          name: 'SignIn',
+          path: '/signIn',
+          builder: (context, params) => SignInWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -286,7 +296,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/login2';
+            return '/signUp';
           }
           return null;
         },

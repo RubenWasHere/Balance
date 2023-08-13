@@ -5,7 +5,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +30,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfileModel());
+
+    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -115,8 +119,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             child: AuthUserStreamWidget(
                               builder: (context) => ClipRRect(
                                 borderRadius: BorderRadius.circular(50.0),
-                                child: Image.network(
-                                  valueOrDefault<String>(
+                                child: CachedNetworkImage(
+                                  fadeInDuration: Duration(milliseconds: 100),
+                                  fadeOutDuration: Duration(milliseconds: 100),
+                                  imageUrl: valueOrDefault<String>(
                                     currentUserPhoto,
                                     'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
                                   ),
@@ -227,6 +233,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           }
                         }
 
+                        if (!_model.isDataUploading) {
+                          return;
+                        }
+
                         await currentUserReference!
                             .update(createUsersRecordData(
                           photoUrl: _model.uploadedFileUrl,
@@ -279,18 +289,66 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
                           Icons.create_rounded,
                           color: FlutterFlowTheme.of(context).secondaryText,
                           size: 24.0,
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'Change Username',
-                            style: FlutterFlowTheme.of(context).bodyLarge,
+                        Expanded(
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 0.0, 6.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => TextFormField(
+                                  controller: _model.textController,
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.textController',
+                                    Duration(milliseconds: 2000),
+                                    () async {
+                                      await currentUserReference!
+                                          .update(createUsersRecordData(
+                                        displayName: _model.textController.text,
+                                      ));
+                                    },
+                                  ),
+                                  textCapitalization: TextCapitalization.none,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelStyle:
+                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    hintText: valueOrDefault<String>(
+                                      currentUserDisplayName,
+                                      'Add Username',
+                                    ),
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                    enabledBorder: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    focusedErrorBorder: InputBorder.none,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                  validator: _model.textControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         Expanded(
@@ -389,7 +447,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     await authManager.signOut();
                     GoRouter.of(context).clearRedirectLocation();
 
-                    context.goNamedAuth('Login2', context.mounted);
+                    context.goNamedAuth('SignUp', context.mounted);
                   },
                   child: Container(
                     width: double.infinity,
