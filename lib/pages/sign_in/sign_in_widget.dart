@@ -424,7 +424,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         context.goNamedAuth(
                                             'Home', context.mounted);
                                       },
-                                      text: 'Continue with Google',
+                                      text: 'Sign in with Google',
                                       icon: FaIcon(
                                         FontAwesomeIcons.google,
                                         size: 20.0,
@@ -476,7 +476,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                               context.goNamedAuth(
                                                   'Home', context.mounted);
                                             },
-                                            text: 'Continue with Apple',
+                                            text: 'Sign in with Apple',
                                             icon: FaIcon(
                                               FontAwesomeIcons.apple,
                                               size: 20.0,
@@ -529,12 +529,75 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           text: TextSpan(
                                             children: [
                                               TextSpan(
-                                                text:
-                                                    'Already have an account? ',
+                                                text: 'New to Balance? ',
                                                 style: TextStyle(),
                                               ),
                                               TextSpan(
-                                                text: ' Sign In here',
+                                                text: ' Sign up here',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF00AEFF),
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                              )
+                                            ],
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                  color: Color(0xFF101213),
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+
+                                  // You will have to add an action on this rich text to go to your login page.
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 12.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (_model.emailAddressController.text
+                                              .isEmpty) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Email required!',
+                                                ),
+                                              ),
+                                            );
+                                            return;
+                                          }
+                                          await authManager.resetPassword(
+                                            email: _model
+                                                .emailAddressController.text,
+                                            context: context,
+                                          );
+                                        },
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Forgot Password?',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

@@ -122,11 +122,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
-          name: 'Login3',
-          path: '/login3',
-          builder: (context, params) => Login3Widget(),
-        ),
-        FFRoute(
           name: 'SignIn',
           path: '/signIn',
           builder: (context, params) => SignInWidget(),

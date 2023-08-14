@@ -233,7 +233,30 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           }
                         }
 
-                        if (!_model.isDataUploading) {
+                        var confirmDialogResponse = await showDialog<bool>(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('Profile Picture'),
+                                  content: Text(
+                                      'Are you sure you want to change your picture?'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, false),
+                                      child: Text('Cancel'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(
+                                          alertDialogContext, true),
+                                      child: Text('Confirm'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ) ??
+                            false;
+                        if (!confirmDialogResponse) {
                           return;
                         }
 
@@ -310,6 +333,38 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     '_model.textController',
                                     Duration(milliseconds: 2000),
                                     () async {
+                                      var confirmDialogResponse =
+                                          await showDialog<bool>(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return AlertDialog(
+                                                    title: Text('Username'),
+                                                    content: Text(
+                                                        'Are you sure you want to change your username?'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                false),
+                                                        child: Text('Cancel'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                true),
+                                                        child: Text('Confirm'),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              ) ??
+                                              false;
+                                      if (!confirmDialogResponse) {
+                                        return;
+                                      }
+
                                       await currentUserReference!
                                           .update(createUsersRecordData(
                                         displayName: _model.textController.text,
@@ -344,6 +399,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                       ),
+                                  keyboardType: TextInputType.name,
                                   validator: _model.textControllerValidator
                                       .asValidator(context),
                                 ),
