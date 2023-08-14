@@ -87,7 +87,16 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       locale: _locale,
-      supportedLocales: const [Locale('en', '')],
+      supportedLocales: const [
+        Locale('en'),
+        Locale('es'),
+        Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
+        Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
+        Locale('de'),
+        Locale('nl'),
+        Locale('ja'),
+        Locale('hi'),
+      ],
       theme: ThemeData(
         brightness: Brightness.light,
         scrollbarTheme: ScrollbarThemeData(),
@@ -153,7 +162,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.favorite,
               size: 20.0,
             ),
-            label: 'Health',
+            label: FFLocalizations.of(context).getText(
+              'r26xbcvp' /* Health */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -161,7 +172,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.home,
               size: 20.0,
             ),
-            label: 'Home',
+            label: FFLocalizations.of(context).getText(
+              '05ip066l' /* Home */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -169,7 +182,9 @@ class _NavBarPageState extends State<NavBarPage> {
               FontAwesomeIcons.dumbbell,
               size: 20.0,
             ),
-            label: 'Workout',
+            label: FFLocalizations.of(context).getText(
+              'yxtektu5' /* Workout */,
+            ),
             tooltip: '',
           )
         ],

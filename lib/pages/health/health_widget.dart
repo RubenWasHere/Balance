@@ -43,7 +43,9 @@ class _HealthWidgetState extends State<HealthWidget> {
           backgroundColor: Color(0xFF127300),
           automaticallyImplyLeading: false,
           title: Text(
-            'BALANCE.',
+            FFLocalizations.of(context).getText(
+              's8r3i5uq' /* BALANCE. */,
+            ),
             style: FlutterFlowTheme.of(context).displayMedium.override(
                   fontFamily: 'Outfit',
                   color: Color(0xFFF8F1F1),

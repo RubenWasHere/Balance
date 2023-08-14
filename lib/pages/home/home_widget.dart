@@ -47,7 +47,9 @@ class _HomeWidgetState extends State<HomeWidget> {
           backgroundColor: Color(0xFF127300),
           automaticallyImplyLeading: false,
           title: Text(
-            'BALANCE.',
+            FFLocalizations.of(context).getText(
+              'n80x0pjn' /* BALANCE. */,
+            ),
             style: FlutterFlowTheme.of(context).displayMedium.override(
                   fontFamily: 'Outfit',
                   color: Color(0xFFF8F1F1),
@@ -102,7 +104,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                             onPressed: () {
                               print('Button pressed ...');
                             },
-                            text: 'Workout History',
+                            text: FFLocalizations.of(context).getText(
+                              '2tzrzp82' /* Workout History */,
+                            ),
                             options: FFButtonOptions(
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -133,7 +137,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'Weight',
+                      FFLocalizations.of(context).getText(
+                        'tviu6xrv' /* Weight */,
+                      ),
                       style: FlutterFlowTheme.of(context).headlineMedium,
                     ),
                   ),
@@ -229,7 +235,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ),
                         axisBounds: AxisBounds(),
                         xAxisLabelInfo: AxisLabelInfo(
-                          title: 'Day',
+                          title: FFLocalizations.of(context).getText(
+                            '1s85p23h' /* Day */,
+                          ),
                           titleTextStyle: TextStyle(
                             fontSize: 14.0,
                           ),
@@ -237,7 +245,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                           labelInterval: 1.0,
                         ),
                         yAxisLabelInfo: AxisLabelInfo(
-                          title: 'Weight',
+                          title: FFLocalizations.of(context).getText(
+                            '60icw63v' /* Weight */,
+                          ),
                           titleTextStyle: TextStyle(
                             fontSize: 14.0,
                           ),

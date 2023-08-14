@@ -84,7 +84,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'BALANCE.',
+                                  FFLocalizations.of(context).getText(
+                                    'bki6fcpc' /* BALANCE. */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
@@ -116,7 +118,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Welcome Back',
+                                    FFLocalizations.of(context).getText(
+                                      '11uarqkt' /* Welcome Back */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineLarge
                                         .override(
@@ -130,7 +134,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 24.0),
                                     child: Text(
-                                      'Let\'s get back into it by filling the information below.',
+                                      FFLocalizations.of(context).getText(
+                                        'gauwov03' /* Let's get back into it by fill... */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -153,7 +159,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         autofillHints: [AutofillHints.email],
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Email',
+                                          labelText: FFLocalizations.of(context)
+                                              .getText(
+                                            '221upj73' /* Email */,
+                                          ),
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -227,7 +236,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         autofillHints: [AutofillHints.password],
                                         obscureText: !_model.passwordVisibility,
                                         decoration: InputDecoration(
-                                          labelText: 'Password',
+                                          labelText: FFLocalizations.of(context)
+                                              .getText(
+                                            'h4vuaqgq' /* Password */,
+                                          ),
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -324,7 +336,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         context.goNamedAuth(
                                             'Home', context.mounted);
                                       },
-                                      text: 'Sign In',
+                                      text: FFLocalizations.of(context).getText(
+                                        'y0ybyt83' /* Sign In */,
+                                      ),
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 44.0,
@@ -389,7 +403,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
-                                                'OR',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'x1cw61qr' /* OR */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelLarge
@@ -424,7 +441,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         context.goNamedAuth(
                                             'Home', context.mounted);
                                       },
-                                      text: 'Sign in with Google',
+                                      text: FFLocalizations.of(context).getText(
+                                        'jrdt1yo5' /* Sign in with Google */,
+                                      ),
                                       icon: FaIcon(
                                         FontAwesomeIcons.google,
                                         size: 20.0,
@@ -476,7 +495,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                               context.goNamedAuth(
                                                   'Home', context.mounted);
                                             },
-                                            text: 'Sign in with Apple',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'efulmh4b' /* Sign in with Apple */,
+                                            ),
                                             icon: FaIcon(
                                               FontAwesomeIcons.apple,
                                               size: 20.0,
@@ -529,11 +551,19 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           text: TextSpan(
                                             children: [
                                               TextSpan(
-                                                text: 'New to Balance? ',
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'm5uswki5' /* New to Balance?  */,
+                                                ),
                                                 style: TextStyle(),
                                               ),
                                               TextSpan(
-                                                text: ' Sign up here',
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'tyxaku8b' /*  Sign up here */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -597,7 +627,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           text: TextSpan(
                                             children: [
                                               TextSpan(
-                                                text: 'Forgot Password?',
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'oo9xr44t' /* Forgot Password? */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

@@ -66,7 +66,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             },
           ),
           title: Text(
-            'Profile',
+            FFLocalizations.of(context).getText(
+              '4ivamu95' /* Profile */,
+            ),
             style: FlutterFlowTheme.of(context).bodyLarge.override(
                   fontFamily: 'Readex Pro',
                   fontSize: 30.0,
@@ -277,7 +279,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Change Picture',
+                              FFLocalizations.of(context).getText(
+                                'pmarjxhg' /* Change Picture */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),
@@ -325,7 +329,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 6.0),
+                                  12.0, 0.0, 0.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => TextFormField(
                                   controller: _model.textController,
@@ -483,7 +487,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Logout',
+                              FFLocalizations.of(context).getText(
+                                'y9rtj8s1' /* Logout */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyLarge,
                             ),
                           ),

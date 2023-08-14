@@ -45,7 +45,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
           backgroundColor: Color(0xFF127300),
           automaticallyImplyLeading: false,
           title: Text(
-            'BALANCE.',
+            FFLocalizations.of(context).getText(
+              'bc7cf98z' /* BALANCE. */,
+            ),
             style: FlutterFlowTheme.of(context).displayMedium.override(
                   fontFamily: 'Outfit',
                   color: Color(0xFFF8F1F1),
@@ -93,7 +95,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
                     child: Text(
-                      'Recommended Workouts',
+                      FFLocalizations.of(context).getText(
+                        'ghjgh5w0' /* Recommended Workouts */,
+                      ),
                       style: FlutterFlowTheme.of(context).headlineMedium,
                     ),
                   ),
@@ -154,7 +158,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                     ),
                                   ),
                                   Text(
-                                    'Cardio',
+                                    FFLocalizations.of(context).getText(
+                                      '3qjperj8' /* Cardio */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall,
                                   ),
@@ -211,7 +217,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                     ),
                                   ),
                                   Text(
-                                    'Strength',
+                                    FFLocalizations.of(context).getText(
+                                      'vf8954ho' /* Strength */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall,
                                   ),
@@ -249,7 +257,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                     },
                                   );
                                 },
-                                text: 'Start New Workout',
+                                text: FFLocalizations.of(context).getText(
+                                  'ejlhi3u1' /* Start New Workout */,
+                                ),
                                 options: FFButtonOptions(
                                   height: 40.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -280,7 +290,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'My Routines',
+                          FFLocalizations.of(context).getText(
+                            'imsaf5u9' /* My Routines */,
+                          ),
                           style: FlutterFlowTheme.of(context).headlineMedium,
                         ),
                       ),
@@ -349,7 +361,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Push',
+                                          FFLocalizations.of(context).getText(
+                                            'edubhyg3' /* Push */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
@@ -363,7 +377,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
-                                            'Last Performed 2 days ago',
+                                            FFLocalizations.of(context).getText(
+                                              'pofpqoyy' /* Last Performed 2 days ago */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
@@ -380,7 +396,11 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: Text(
-                                            '5x Benchpress (Barbell)\n4x Incline Benchpress (Barbell)\n3x Overhead Press (Dumbbell)\n3x Chest Fly (Cable)\n3x Tricep Pushdown\n3x Tricep Extension',
+                                            FFLocalizations.of(context).getText(
+                                              'x27b4jfr' /* 5x Benchpress (Barbell)
+4x Inc... */
+                                              ,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
@@ -467,7 +487,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Pull',
+                                          FFLocalizations.of(context).getText(
+                                            'z1wdqigq' /* Pull */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
@@ -481,7 +503,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
-                                            'Last Performed 4 days ago',
+                                            FFLocalizations.of(context).getText(
+                                              'i9k5ep8o' /* Last Performed 4 days ago */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
@@ -498,7 +522,11 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: Text(
-                                            '6x Lat Pulldowns (Cable)\n4x Seated Rows (Cable)\n3x Bicep Curls (Barbell)\n3x T-Bar Rows \n3x Hammer Curls (Dumbbell)\n3x Shrugs (Dumbbell)',
+                                            FFLocalizations.of(context).getText(
+                                              'cyj9xgzi' /* 6x Lat Pulldowns (Cable)
+4x Se... */
+                                              ,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
@@ -585,7 +613,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Legs',
+                                          FFLocalizations.of(context).getText(
+                                            'ov1fjobt' /* Legs */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
@@ -599,7 +629,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
-                                            'Last Performed 5 days ago',
+                                            FFLocalizations.of(context).getText(
+                                              '3ejytq91' /* Last Performed 5 days ago */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
@@ -616,7 +648,11 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: Text(
-                                            '5x Deadlift (Barbell)\n4x Squats (Barbell)\n3x Seated Leg Curl (Machine)\n3x Leg Extension (Machine)\n3x Calf raises (Machine)',
+                                            FFLocalizations.of(context).getText(
+                                              'f79y2fm5' /* 5x Deadlift (Barbell)
+4x Squat... */
+                                              ,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
