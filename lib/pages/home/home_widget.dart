@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_model.dart';
@@ -193,10 +194,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                         child: SizedBox(
                           width: 50.0,
                           height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
-                            ),
+                          child: SpinKitFoldingCube(
+                            color: Color(0xFF00D3FF),
+                            size: 50.0,
                           ),
                         ),
                       );

@@ -798,6 +798,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
+  // ProfileCopy
+  {
+    'j3qrz6ly': {
+      'en': 'Light',
+      'de': 'Bild ändern',
+      'es': 'Cambiar imagen',
+      'hi': 'चित्र बदलें',
+      'ja': '写真を変える',
+      'nl': 'Verander afbeelding',
+      'zh_Hans': '更换图片',
+      'zh_Hant': '更換圖片',
+    },
+    'vanr44g0': {
+      'en': 'Dark',
+      'de': 'Bild ändern',
+      'es': 'Cambiar imagen',
+      'hi': 'चित्र बदलें',
+      'ja': '写真を変える',
+      'nl': 'Verander afbeelding',
+      'zh_Hans': '更换图片',
+      'zh_Hant': '更換圖片',
+    },
+    '8wmoz7jn': {
+      'en': 'Custom',
+      'de': 'Ausloggen',
+      'es': 'Cerrar sesión',
+      'hi': 'लॉग आउट',
+      'ja': 'ログアウト',
+      'nl': 'Uitloggen',
+      'zh_Hans': '登出',
+      'zh_Hant': '登出',
+    },
+    'jg3z5ja1': {
+      'en': 'Profile',
+      'de': 'Profil',
+      'es': 'Perfil',
+      'hi': 'प्रोफ़ाइल',
+      'ja': 'プロフィール',
+      'nl': 'Profiel',
+      'zh_Hans': '轮廓',
+      'zh_Hant': '輪廓',
+    },
+  },
   // Miscellaneous
   {
     '4c1yo2p0': {
@@ -812,6 +855,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'se7j07a3': {
       'en': '',
+      'de': '',
+      'es': '',
+      'hi': '',
+      'ja': '',
+      'nl': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'wopa198y': {
+      'en':
+          'In order to notify you on goals, current workouts and timers, this app requires permission to send notifications.',
       'de': '',
       'es': '',
       'hi': '',
