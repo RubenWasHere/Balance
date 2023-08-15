@@ -1,31 +1,30 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'settings_model.dart';
-export 'settings_model.dart';
+import 'sound_model.dart';
+export 'sound_model.dart';
 
-class SettingsWidget extends StatefulWidget {
-  const SettingsWidget({Key? key}) : super(key: key);
+class SoundWidget extends StatefulWidget {
+  const SoundWidget({Key? key}) : super(key: key);
 
   @override
-  _SettingsWidgetState createState() => _SettingsWidgetState();
+  _SoundWidgetState createState() => _SoundWidgetState();
 }
 
-class _SettingsWidgetState extends State<SettingsWidget> {
-  late SettingsModel _model;
+class _SoundWidgetState extends State<SoundWidget> {
+  late SoundModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SettingsModel());
+    _model = createModel(context, () => SoundModel());
   }
 
   @override
@@ -61,7 +60,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              '5ixzwgjl' /* Settings */,
+              'vrip730x' /* Sound */,
             ),
             style: FlutterFlowTheme.of(context).bodyLarge.override(
                   fontFamily: 'Readex Pro',
@@ -168,76 +167,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'swzt9q4e' /* Settings */,
+                        '74tno7py' /* Sound */,
                       ),
                       style: FlutterFlowTheme.of(context).labelLarge,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Profile');
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 5.0,
-                              color: Color(0x3416202A),
-                              offset: Offset(0.0, 2.0),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 8.0, 8.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.person,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'u7hxk5d1' /* Profile */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.9, 0.0),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 18.0,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     ),
                   ),
                   Padding(
@@ -265,7 +197,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
-                              Icons.volume_up,
+                              Icons.share_arrival_time_sharp,
                               color: FlutterFlowTheme.of(context).secondaryText,
                               size: 24.0,
                             ),
@@ -275,85 +207,18 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'a23i2ejl' /* Sound */,
+                                    'f62b6vbf' /* Timer Sound Effect */,
                                   ),
                                   style: FlutterFlowTheme.of(context).bodyLarge,
                                 ),
                               ),
                             ),
-                            Align(
-                              alignment: AlignmentDirectional(0.9, 0.0),
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 18.0,
-                              ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 18.0,
                             ),
                           ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 60.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5.0,
-                            color: Color(0x3416202A),
-                            offset: Offset(0.0, 2.0),
-                          )
-                        ],
-                        borderRadius: BorderRadius.circular(12.0),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('Theme');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.format_paint,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '5o0l7654' /* Theme */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
-                                  ),
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 18.0,
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                     ),
@@ -393,7 +258,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'whjue41r' /* Notification Settings */,
+                                    '6o028zbk' /* Notification Settings */,
                                   ),
                                   style: FlutterFlowTheme.of(context).bodyLarge,
                                 ),
@@ -448,7 +313,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'gdjpjpgx' /* Support */,
+                                    'oizfdrdv' /* Support */,
                                   ),
                                   style: FlutterFlowTheme.of(context).bodyLarge,
                                 ),
@@ -464,32 +329,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 12.0, 16.0, 0.0),
-                        child: FlutterFlowLanguageSelector(
-                          height: 60.0,
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderColor: Colors.transparent,
-                          dropdownIconColor:
-                              FlutterFlowTheme.of(context).primaryText,
-                          borderRadius: 10.0,
-                          textStyle: FlutterFlowTheme.of(context).bodyLarge,
-                          hideFlags: false,
-                          flagSize: 24.0,
-                          flagTextGap: 8.0,
-                          currentLanguage:
-                              FFLocalizations.of(context).languageCode,
-                          languages: FFLocalizations.languages(),
-                          onChanged: (lang) => setAppLanguage(context, lang),
                         ),
                       ),
                     ),

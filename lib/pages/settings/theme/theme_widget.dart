@@ -10,25 +10,25 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutterflow_colorpicker/flutterflow_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'profile_copy_model.dart';
-export 'profile_copy_model.dart';
+import 'theme_model.dart';
+export 'theme_model.dart';
 
-class ProfileCopyWidget extends StatefulWidget {
-  const ProfileCopyWidget({Key? key}) : super(key: key);
+class ThemeWidget extends StatefulWidget {
+  const ThemeWidget({Key? key}) : super(key: key);
 
   @override
-  _ProfileCopyWidgetState createState() => _ProfileCopyWidgetState();
+  _ThemeWidgetState createState() => _ThemeWidgetState();
 }
 
-class _ProfileCopyWidgetState extends State<ProfileCopyWidget> {
-  late ProfileCopyModel _model;
+class _ThemeWidgetState extends State<ThemeWidget> {
+  late ThemeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProfileCopyModel());
+    _model = createModel(context, () => ThemeModel());
   }
 
   @override
@@ -68,7 +68,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget> {
             ),
             title: Text(
               FFLocalizations.of(context).getText(
-                'jg3z5ja1' /* Profile */,
+                'jg3z5ja1' /* Theme */,
               ),
               style: FlutterFlowTheme.of(context).bodyLarge.override(
                     fontFamily: 'Readex Pro',
@@ -90,10 +90,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: valueOrDefault<Color>(
-                        currentUserDocument?.colour,
-                        FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 3.0,
@@ -394,7 +391,7 @@ class _ProfileCopyWidgetState extends State<ProfileCopyWidget> {
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '8wmoz7jn' /* Custom */,
+                                    '8wmoz7jn' /* Custom Background */,
                                   ),
                                   style: FlutterFlowTheme.of(context).bodyLarge,
                                 ),

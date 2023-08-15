@@ -46,7 +46,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
           child: Row(
@@ -93,7 +93,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                       .displaySmall
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF101213),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                         fontSize: 36.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -127,7 +128,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         .headlineLarge
                                         .override(
                                           fontFamily: 'Urbanist',
-                                          color: Color(0xFF101213),
+                                          color: Colors.black,
                                           fontSize: 32.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -694,7 +695,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: Color(0xFF101213),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),

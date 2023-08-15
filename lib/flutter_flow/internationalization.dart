@@ -167,16 +167,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '轮廓',
       'zh_Hant': '輪廓',
     },
-    'l3mj0bnr': {
-      'en': 'Language (English)',
-      'de': 'Sprache Englisch)',
-      'es': 'Idioma: inglés)',
-      'hi': 'भाषा अंग्रेजी)',
-      'ja': '言語（英語）',
-      'nl': 'Taal Engels)',
-      'zh_Hans': '英语语言）',
-      'zh_Hant': '英語語言）',
-    },
     'a23i2ejl': {
       'en': 'Sound',
       'de': 'Klang',
@@ -632,6 +622,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Profile
   {
+    'bayrzuvo': {
+      'en': 'Profile',
+      'de': 'Einstellungen',
+      'es': 'Ajustes',
+      'hi': 'समायोजन',
+      'ja': '設定',
+      'nl': 'Instellingen',
+      'zh_Hans': '设置',
+      'zh_Hant': '設置',
+    },
     'pmarjxhg': {
       'en': 'Change Picture',
       'de': 'Bild ändern',
@@ -641,6 +641,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Verander afbeelding',
       'zh_Hans': '更换图片',
       'zh_Hant': '更換圖片',
+    },
+    'hrqh3dqn': {
+      'en': 'Change Name',
+      'de': '',
+      'es': '',
+      'hi': '',
+      'ja': '',
+      'nl': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
     },
     'y9rtj8s1': {
       'en': 'Logout',
@@ -798,7 +808,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '家',
     },
   },
-  // ProfileCopy
+  // Theme
   {
     'j3qrz6ly': {
       'en': 'Light',
@@ -821,7 +831,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '更換圖片',
     },
     '8wmoz7jn': {
-      'en': 'Custom',
+      'en': 'Custom Background',
       'de': 'Ausloggen',
       'es': 'Cerrar sesión',
       'hi': 'लॉग आउट',
@@ -831,7 +841,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '登出',
     },
     'jg3z5ja1': {
-      'en': 'Profile',
+      'en': 'Theme',
       'de': 'Profil',
       'es': 'Perfil',
       'hi': 'प्रोफ़ाइल',
@@ -839,6 +849,69 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Profiel',
       'zh_Hans': '轮廓',
       'zh_Hant': '輪廓',
+    },
+  },
+  // Sound
+  {
+    '74tno7py': {
+      'en': 'Sound',
+      'de': 'Einstellungen',
+      'es': 'Ajustes',
+      'hi': 'समायोजन',
+      'ja': '設定',
+      'nl': 'Instellingen',
+      'zh_Hans': '设置',
+      'zh_Hant': '設置',
+    },
+    'f62b6vbf': {
+      'en': 'Timer Sound Effect',
+      'de': 'Thema',
+      'es': 'Tema',
+      'hi': 'विषय',
+      'ja': 'テーマ',
+      'nl': 'Thema',
+      'zh_Hans': '主题',
+      'zh_Hant': '主題',
+    },
+    '6o028zbk': {
+      'en': 'Notification Settings',
+      'de': 'Benachrichtigungseinstellungen',
+      'es': 'Configuración de las notificaciones',
+      'hi': 'अधिसूचना सेटिंग्स',
+      'ja': '通知設定',
+      'nl': 'Notificatie instellingen',
+      'zh_Hans': '通知设置',
+      'zh_Hant': '通知設置',
+    },
+    'oizfdrdv': {
+      'en': 'Support',
+      'de': 'Unterstützung',
+      'es': 'Apoyo',
+      'hi': 'सहायता',
+      'ja': 'サポート',
+      'nl': 'Steun',
+      'zh_Hans': '支持',
+      'zh_Hant': '支持',
+    },
+    'vrip730x': {
+      'en': 'Sound',
+      'de': 'Einstellungen',
+      'es': 'Ajustes',
+      'hi': 'समायोजन',
+      'ja': '設定',
+      'nl': 'Instellingen',
+      'zh_Hans': '设置',
+      'zh_Hant': '設置',
+    },
+    'yw1a1ucj': {
+      'en': 'Settings',
+      'de': 'Einstellungen',
+      'es': 'Ajustes',
+      'hi': 'समायोजन',
+      'ja': '設定',
+      'nl': 'Instellingen',
+      'zh_Hans': '设置',
+      'zh_Hant': '設置',
     },
   },
   // Miscellaneous

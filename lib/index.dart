@@ -6,5 +6,5 @@ export '/pages/workout/workout_widget.dart' show WorkoutWidget;
 export '/pages/home/home_widget.dart' show HomeWidget;
 export '/pages/settings/profile/profile_widget.dart' show ProfileWidget;
 export '/pages/sign_in/sign_in_widget.dart' show SignInWidget;
-export '/pages/settings/profile_copy/profile_copy_widget.dart'
-    show ProfileCopyWidget;
+export '/pages/settings/theme/theme_widget.dart' show ThemeWidget;
+export '/pages/settings/sound/sound_widget.dart' show SoundWidget;
