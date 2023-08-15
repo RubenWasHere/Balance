@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/start_workout_comp_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -45,36 +44,6 @@ class _CurrentWorkoutWidgetState extends State<CurrentWorkoutWidget> {
           backgroundColor: valueOrDefault<Color>(
             currentUserDocument?.colour,
             FlutterFlowTheme.of(context).primaryBackground,
-          ),
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 32.0,
-              ),
-              onPressed: () async {
-                context.pop();
-              },
-            ),
-            title: Text(
-              FFLocalizations.of(context).getText(
-                'lnk074sd' /* Current Workout */,
-              ),
-              style: FlutterFlowTheme.of(context).bodyLarge.override(
-                    fontFamily: 'Readex Pro',
-                    fontSize: 30.0,
-                  ),
-            ),
-            actions: [],
-            centerTitle: false,
-            elevation: 0.0,
           ),
           body: SafeArea(
             top: true,

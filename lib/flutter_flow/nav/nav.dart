@@ -336,8 +336,8 @@ class FFRoute {
                   child: Center(
                     child: Image.asset(
                       'assets/images/Copy_of_Copy_of_BALANCE.gif',
-                      width: 300.0,
-                      height: 300.0,
+                      width: double.infinity,
+                      height: double.infinity,
                       fit: BoxFit.contain,
                     ),
                   ),
