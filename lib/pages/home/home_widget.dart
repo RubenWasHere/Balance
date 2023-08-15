@@ -1,6 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -188,82 +186,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                       ),
                     ),
                   ],
-                ),
-                Flexible(
-                  child: FutureBuilder<List<WeightRecord>>(
-                    future: queryWeightRecordOnce(),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: SpinKitFoldingCube(
-                              color: Color(0xFF00D3FF),
-                              size: 50.0,
-                            ),
-                          ),
-                        );
-                      }
-                      List<WeightRecord> chartWeightRecordList = snapshot.data!;
-                      return Container(
-                        width: 350.0,
-                        height: 200.0,
-                        child: FlutterFlowLineChart(
-                          data: [
-                            FFLineChartData(
-                              xData: chartWeightRecordList
-                                  .map((d) => d.weight)
-                                  .toList(),
-                              yData: chartWeightRecordList
-                                  .map((d) => d.date)
-                                  .toList(),
-                              settings: LineChartBarData(
-                                color: Color(0xFFFF6E00),
-                                barWidth: 2.0,
-                                isCurved: true,
-                                dotData: FlDotData(show: false),
-                                belowBarData: BarAreaData(
-                                  show: true,
-                                  color: Color(0xFFEF9439),
-                                ),
-                              ),
-                            )
-                          ],
-                          chartStylingInfo: ChartStylingInfo(
-                            backgroundColor: Color(0x00FFFFFF),
-                            showGrid: true,
-                            borderColor:
-                                FlutterFlowTheme.of(context).secondaryText,
-                            borderWidth: 1.0,
-                          ),
-                          axisBounds: AxisBounds(),
-                          xAxisLabelInfo: AxisLabelInfo(
-                            title: FFLocalizations.of(context).getText(
-                              '1s85p23h' /* Day */,
-                            ),
-                            titleTextStyle: TextStyle(
-                              fontSize: 14.0,
-                            ),
-                            showLabels: true,
-                            labelInterval: 1.0,
-                          ),
-                          yAxisLabelInfo: AxisLabelInfo(
-                            title: FFLocalizations.of(context).getText(
-                              '60icw63v' /* Weight */,
-                            ),
-                            titleTextStyle: TextStyle(
-                              fontSize: 14.0,
-                            ),
-                            showLabels: true,
-                            labelTextStyle: TextStyle(),
-                            labelInterval: 10.0,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
                 ),
               ],
             ),
