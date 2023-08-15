@@ -26,6 +26,11 @@
 		<string>nl</string>
 		<string>ja</string>
 		<string>hi</string>
+		<string>af</string>
+		<string>ar</string>
+		<string>fr</string>
+		<string>sv</string>
+		<string>tr</string>
 	</array>
 
 	<key>CFBundleShortVersionString</key>

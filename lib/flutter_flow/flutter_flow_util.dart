@@ -42,6 +42,13 @@ void _setTimeagoLocales() {
   timeago.setLocaleMessages('ja', timeago.JaMessages());
   timeago.setLocaleMessages('hi', timeago.HiMessages());
   timeago.setLocaleMessages('hi_short', timeago.HiShortMessages());
+  timeago.setLocaleMessages('ar', timeago.ArMessages());
+  timeago.setLocaleMessages('ar_short', timeago.ArShortMessages());
+  timeago.setLocaleMessages('fr', timeago.FrMessages());
+  timeago.setLocaleMessages('fr_short', timeago.FrShortMessages());
+  timeago.setLocaleMessages('sv', timeago.SvMessages());
+  timeago.setLocaleMessages('sv_short', timeago.SvShortMessages());
+  timeago.setLocaleMessages('tr', timeago.TrMessages());
 }
 
 String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {

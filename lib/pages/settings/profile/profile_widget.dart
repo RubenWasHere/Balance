@@ -393,7 +393,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyLarge,
                                   hintText: FFLocalizations.of(context).getText(
-                                    'hrqh3dqn' /* Change Name */,
+                                    'yk9n7qac' /* Change Name */,
                                   ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyLarge

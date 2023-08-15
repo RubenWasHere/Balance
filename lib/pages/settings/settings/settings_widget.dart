@@ -468,13 +468,28 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       ),
                     ),
                   ),
-                  Flexible(
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 12.0, 16.0, 0.0),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5.0,
+                            color: Color(0x3416202A),
+                            offset: Offset(0.0, 2.0),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(12.0),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowLanguageSelector(
+                          width: double.infinity,
                           height: 60.0,
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -485,7 +500,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           textStyle: FlutterFlowTheme.of(context).bodyLarge,
                           hideFlags: false,
                           flagSize: 24.0,
-                          flagTextGap: 8.0,
                           currentLanguage:
                               FFLocalizations.of(context).languageCode,
                           languages: FFLocalizations.languages(),
