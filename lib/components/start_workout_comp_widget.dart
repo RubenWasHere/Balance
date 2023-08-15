@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/components/exercises_comp_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -42,6 +43,8 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -111,7 +114,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
               children: [
                 Text(
                   FFLocalizations.of(context).getText(
-                    'mb3gyldh' /* Hello World */,
+                    '9hfrnbzt' /* Timer.. */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
@@ -122,11 +125,49 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
               children: [
                 Text(
                   FFLocalizations.of(context).getText(
-                    'lz1lfybc' /* Notes */,
+                    'pmkg36t4' /* Notes */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ],
+            ),
+            Builder(
+              builder: (context) {
+                final exercise = FFAppState().workout.exercises.toList();
+                return ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: exercise.length,
+                  itemBuilder: (context, exerciseIndex) {
+                    final exerciseItem = exercise[exerciseIndex];
+                    return StreamBuilder<ExercisesRecord>(
+                      stream: ExercisesRecord.getDocument(
+                          exerciseItem.exerciseRef!),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitFoldingCube(
+                                color: Color(0xFF00D3FF),
+                                size: 50.0,
+                              ),
+                            ),
+                          );
+                        }
+                        final textExercisesRecord = snapshot.data!;
+                        return Text(
+                          textExercisesRecord.name,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        );
+                      },
+                    );
+                  },
+                );
+              },
             ),
             Row(
               mainAxisSize: MainAxisSize.max,

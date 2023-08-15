@@ -37,6 +37,8 @@ class _ExercisesWidgetState extends State<ExercisesWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return AuthUserStreamWidget(
       builder: (context) => GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),

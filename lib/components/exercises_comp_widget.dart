@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,8 @@ class _ExercisesCompWidgetState extends State<ExercisesCompWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -99,13 +102,31 @@ class _ExercisesCompWidgetState extends State<ExercisesCompWidget> {
                       ),
                       child: CheckboxListTile(
                         value: _model.checkboxListTileValueMap[
-                            listViewExercisesRecord] ??= false,
+                                listViewExercisesRecord] ??=
+                            FFAppState()
+                                .workout
+                                .exercises
+                                .map((e) => e.exerciseRef?.id)
+                                .withoutNulls
+                                .toList()
+                                .contains(listViewExercisesRecord.reference.id),
                         onChanged: (newValue) async {
                           setState(() => _model.checkboxListTileValueMap[
                               listViewExercisesRecord] = newValue!);
                           if (newValue!) {
                             setState(() {
                               _model.total = _model.total! + 1;
+                            });
+                            setState(() {
+                              FFAppState().updateWorkoutStruct(
+                                (e) => e
+                                  ..updateExercises(
+                                    (e) => e.add(ExerciseStruct(
+                                      exerciseRef:
+                                          listViewExercisesRecord.reference,
+                                    )),
+                                  ),
+                              );
                             });
                           } else {
                             setState(() {

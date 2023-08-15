@@ -39,6 +39,8 @@ class _HistoryEmptyWidgetState extends State<HistoryEmptyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 200.0,
@@ -61,7 +63,7 @@ class _HistoryEmptyWidgetState extends State<HistoryEmptyWidget> {
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'me56odru' /* No Workouts Performed Yet :( */,
+                          'qq70pl4r' /* No Workouts Performed Yet :( */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
@@ -80,7 +82,7 @@ class _HistoryEmptyWidgetState extends State<HistoryEmptyWidget> {
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'h69obtlh' /* Completed Workouts Will Appear... */,
+                          '5nmn07hj' /* Completed Workouts Will Appear... */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
@@ -94,7 +96,7 @@ class _HistoryEmptyWidgetState extends State<HistoryEmptyWidget> {
                 print('Button pressed ...');
               },
               text: FFLocalizations.of(context).getText(
-                'lw8simmj' /* START WORKOUT */,
+                '49evsb7o' /* START WORKOUT */,
               ),
               options: FFButtonOptions(
                 width: double.infinity,

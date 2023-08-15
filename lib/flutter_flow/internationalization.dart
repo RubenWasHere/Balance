@@ -1303,7 +1303,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // historyEmpty
   {
-    'me56odru': {
+    'qq70pl4r': {
       'en': 'No Workouts Performed Yet :(',
       'af': '',
       'ar': '',
@@ -1318,7 +1318,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'h69obtlh': {
+    '5nmn07hj': {
       'en': 'Completed Workouts Will Appear Here.',
       'af': '',
       'ar': '',
@@ -1333,7 +1333,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'lw8simmj': {
+    '49evsb7o': {
       'en': 'START WORKOUT',
       'af': '',
       'ar': '',
@@ -1366,8 +1366,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '重量',
       'zh_Hant': '重量',
     },
-    'mb3gyldh': {
-      'en': 'Hello World',
+    '9hfrnbzt': {
+      'en': 'Timer..',
       'af': '',
       'ar': '',
       'de': '',
@@ -1381,7 +1381,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'lz1lfybc': {
+    'pmkg36t4': {
       'en': 'Notes',
       'af': '',
       'ar': '',
