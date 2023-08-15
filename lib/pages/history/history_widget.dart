@@ -109,7 +109,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           size: 32.0,
                         ),
                         onPressed: () async {
-                          context.pop();
+                          context.safePop();
                         },
                       ),
                       Padding(

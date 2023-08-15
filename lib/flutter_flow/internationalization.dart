@@ -577,21 +577,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '我的日常',
       'zh_Hant': '我的日常',
     },
-    'edubhyg3': {
-      'en': 'Push',
-      'af': 'Druk',
-      'ar': 'يدفع',
-      'de': 'Drücken',
-      'es': 'Empujar',
-      'fr': 'Pousser',
-      'hi': 'धकेलना',
-      'ja': '押す',
-      'nl': 'Duw',
-      'sv': 'Skjuta på',
-      'tr': 'İtmek',
-      'zh_Hans': '推',
-      'zh_Hant': '推',
-    },
     'pofpqoyy': {
       'en': 'Last Performed 2 days ago',
       'af': 'Laas uitgevoer 2 dae gelede',
@@ -606,34 +591,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'En Son 2 gün önce Gerçekleştirildi',
       'zh_Hans': '上次表演 2 天前',
       'zh_Hant': '上次表演 2 天前',
-    },
-    'x27b4jfr': {
-      'en':
-          '5x Benchpress (Barbell)\n4x Incline Benchpress (Barbell)\n3x Overhead Press (Dumbbell)\n3x Chest Fly (Cable)\n3x Tricep Pushdown\n3x Tricep Extension',
-      'af':
-          '5x Benchpress (Barbell)\n4x Incline Benchpress (Barbell)\n3x oorhoofse pers (halter)\n3x Borsvlieg (kabel)\n3x Triceps Pushdown\n3x Triceps Extension',
-      'ar':
-          '5x بينشبرس (باربيل)\n4x مائل بنشبريس (باربيل)\n3x الضغط فوق الرأس (الدمبل)\n3x ذبابة الصدر (كابل)\n3x تمرين ضغط ثلاثي الرؤوس\n3x تمرين تمديد العضلة الثلاثية',
-      'de':
-          '5x Bankdrücken (Langhantel)\n4x Schrägbankdrücken (Langhantel)\n3x Überkopfdrücken (Hantel)\n3x Brustfliege (Kabel)\n3x Trizeps-Pushdown\n3x Trizepsverlängerung',
-      'es':
-          '5x Press de banca (barra)\n4x Press de banca inclinado (barra)\n3x Press por encima de la cabeza (con mancuernas)\n3 moscas de pecho (cable)\nEmpuje de tríceps 3x\nExtensión de tríceps 3x',
-      'fr':
-          '5x développé couché (haltère)\n4x Développé couché incliné (haltère)\n3x presse aérienne (haltère)\n3x braguette de poitrine (câble)\n3x triceps pushdown\n3x Rallonge Triceps',
-      'hi':
-          '5x बेंचप्रेस (बारबेल)\n4x इनक्लाइन बेंचप्रेस (बारबेल)\n3x ओवरहेड प्रेस (डम्बल)\n3x चेस्ट फ्लाई (केबल)\n3x ट्राइसेप पुशडाउन\n3x ट्राइसेप एक्सटेंशन',
-      'ja':
-          '5x ベンチプレス (バーベル)\n4x インクラインベンチプレス (バーベル)\n3x オーバーヘッド プレス (ダンベル)\n3x チェストフライ (ケーブル)\n3x トライセッププッシュダウン\n3x トライセップエクステンション',
-      'nl':
-          '5x bankdrukken (halterstang)\n4x Incline Benchpress (Barbell)\n3x overheadpers (halter)\n3x borstvlieg (kabel)\n3x triceps pushdown\n3x Tricep-extensie',
-      'sv':
-          '5x bänkpress (skivstång)\n4x Incline Benchpress (skivstång)\n3x Overhead Press (Hantel)\n3x bröstfluga (kabel)\n3x Triceps Pushdown\n3x tricepsförlängning',
-      'tr':
-          '5x Benchpress (Halter)\n4x Eğimli Benchpress (Halter)\n3x Tepegöz Basın (Dambıl)\n3x Sandık Sineği (Kablo)\n3x Tricep Aşağı İtme\n3x Triseps Uzatma',
-      'zh_Hans':
-          '5x 卧推（杠铃）\n4x 上斜卧推（杠铃）\n3x 过头推举（哑铃）\n3x 胸部飞翔（绳索）\n3x 三头肌下压\n3x 三头肌伸展',
-      'zh_Hant':
-          '5x 臥推（槓鈴）\n4x 上斜臥推（槓鈴）\n3x 過頭推舉（啞鈴）\n3x 胸部飛翔（繩索）\n3x 三頭肌下壓\n3x 三頭肌伸展',
     },
     'z1wdqigq': {
       'en': 'Pull',
@@ -1328,8 +1285,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // historyEmpty
   {
-    'r3hh2k3g': {
-      'en': 'No Workouts Performed',
+    '9nqmlwxo': {
+      'en': 'No Workouts Performed Yet :(',
       'af': '',
       'ar': '',
       'de': '',
@@ -1343,7 +1300,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'dhpmchdx': {
+    '2vhaoqyv': {
       'en': 'Completed Workouts Will Appear Here.',
       'af': '',
       'ar': '',
@@ -1358,7 +1315,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '98nflwna': {
+    'sgi9dslm': {
       'en': 'START WORKOUT',
       'af': '',
       'ar': '',

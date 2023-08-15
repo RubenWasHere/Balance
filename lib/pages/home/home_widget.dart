@@ -105,8 +105,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 10.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                context.pushNamed('History');
                               },
                               text: FFLocalizations.of(context).getText(
                                 '2tzrzp82' /* Workout History */,

@@ -93,8 +93,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                       .displaySmall
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color: Colors.black,
                                         fontSize: 36.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -668,7 +667,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                                         .getText(
                                                   'erwy85cy' /* Already have an account?  */,
                                                 ),
-                                                style: TextStyle(),
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                ),
                                               ),
                                               TextSpan(
                                                 text:
@@ -695,9 +696,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
+                                                  color: Colors.black,
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
