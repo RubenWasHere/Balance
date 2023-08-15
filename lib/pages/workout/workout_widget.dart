@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/start_workout_comp_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -244,28 +245,35 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 10.0),
+                                  12.0, 10.0, 12.0, 10.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed(
-                                    'SignUp',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.bottomToTop,
-                                        duration: Duration(milliseconds: 200),
-                                      ),
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return GestureDetector(
+                                        onTap: () => FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: StartWorkoutCompWidget(),
+                                        ),
+                                      );
                                     },
-                                  );
+                                  ).then((value) => setState(() {}));
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'ejlhi3u1' /* Start New Workout */,
                                 ),
                                 options: FFButtonOptions(
+                                  width: double.infinity,
                                   height: 40.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      50.0, 0.0, 50.0, 0.0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: Color(0xFF00AEFF),

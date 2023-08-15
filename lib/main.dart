@@ -147,7 +147,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'Health': HealthWidget(),
       'Home': HomeWidget(),
       'Workout': WorkoutWidget(),
-      'History': HistoryWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -193,16 +192,6 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: FFLocalizations.of(context).getText(
               'yxtektu5' /* Workout */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              size: 20.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'xy24q8cw' /* Home */,
             ),
             tooltip: '',
           )

@@ -141,9 +141,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'History',
           path: '/history',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'History')
-              : HistoryWidget(),
+          builder: (context, params) => HistoryWidget(),
+        ),
+        FFRoute(
+          name: 'CurrentWorkout',
+          path: '/currentWorkout',
+          builder: (context, params) => CurrentWorkoutWidget(),
+        ),
+        FFRoute(
+          name: 'Exercises',
+          path: '/exercises',
+          builder: (context, params) => ExercisesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

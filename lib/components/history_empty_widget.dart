@@ -61,7 +61,7 @@ class _HistoryEmptyWidgetState extends State<HistoryEmptyWidget> {
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          '9nqmlwxo' /* No Workouts Performed Yet :( */,
+                          'id3pif8e' /* No Workouts Performed Yet :( */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
@@ -80,7 +80,7 @@ class _HistoryEmptyWidgetState extends State<HistoryEmptyWidget> {
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          '2vhaoqyv' /* Completed Workouts Will Appear... */,
+                          'asi8uorb' /* Completed Workouts Will Appear... */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
@@ -94,7 +94,7 @@ class _HistoryEmptyWidgetState extends State<HistoryEmptyWidget> {
                 print('Button pressed ...');
               },
               text: FFLocalizations.of(context).getText(
-                'sgi9dslm' /* START WORKOUT */,
+                'ohs93mqa' /* START WORKOUT */,
               ),
               options: FFButtonOptions(
                 width: double.infinity,
