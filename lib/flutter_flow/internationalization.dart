@@ -1396,8 +1396,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'rbbpbxkf': {
-      'en': 'Set',
+    'akhiwx9w': {
+      'en': 'New Set',
       'af': '',
       'ar': '',
       'de': '',
@@ -1444,7 +1444,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // inputWeight
   {
-    '8o6m3dsw': {
+    'fepool91': {
       'en': 'Label here...',
       'af': '',
       'ar': '',
@@ -1462,7 +1462,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // inputReps
   {
-    'nelk83mj': {
+    'i5ob8aap': {
       'en': 'Label here...',
       'af': '',
       'ar': '',

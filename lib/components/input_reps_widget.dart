@@ -56,7 +56,7 @@ class _InputRepsWidgetState extends State<InputRepsWidget> {
         obscureText: false,
         decoration: InputDecoration(
           labelText: FFLocalizations.of(context).getText(
-            'nelk83mj' /* Label here... */,
+            'i5ob8aap' /* Label here... */,
           ),
           labelStyle: FlutterFlowTheme.of(context).labelMedium,
           hintStyle: FlutterFlowTheme.of(context).labelMedium,

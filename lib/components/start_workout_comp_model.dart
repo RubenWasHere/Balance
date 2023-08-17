@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/exercises_comp_widget.dart';
 import '/components/input_reps_widget.dart';
 import '/components/input_weight_widget.dart';
@@ -16,12 +17,22 @@ class StartWorkoutCompModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
   DateTime? datePicked;
+  // Models for inputWeight dynamic component.
+  late FlutterFlowDynamicModels<InputWeightModel> inputWeightModels;
+  // Models for inputReps dynamic component.
+  late FlutterFlowDynamicModels<InputRepsModel> inputRepsModels;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    inputWeightModels = FlutterFlowDynamicModels(() => InputWeightModel());
+    inputRepsModels = FlutterFlowDynamicModels(() => InputRepsModel());
+  }
 
-  void dispose() {}
+  void dispose() {
+    inputWeightModels.dispose();
+    inputRepsModels.dispose();
+  }
 
   /// Action blocks are added here.
 

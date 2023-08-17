@@ -11,9 +11,11 @@ class SetStruct extends FFFirebaseStruct {
   SetStruct({
     int? weight,
     int? reps,
+    int? number,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _weight = weight,
         _reps = reps,
+        _number = number,
         super(firestoreUtilData);
 
   // "weight" field.
@@ -30,9 +32,17 @@ class SetStruct extends FFFirebaseStruct {
   void incrementReps(int amount) => _reps = reps + amount;
   bool hasReps() => _reps != null;
 
+  // "number" field.
+  int? _number;
+  int get number => _number ?? 0;
+  set number(int? val) => _number = val;
+  void incrementNumber(int amount) => _number = number + amount;
+  bool hasNumber() => _number != null;
+
   static SetStruct fromMap(Map<String, dynamic> data) => SetStruct(
         weight: castToType<int>(data['weight']),
         reps: castToType<int>(data['reps']),
+        number: castToType<int>(data['number']),
       );
 
   static SetStruct? maybeFromMap(dynamic data) =>
@@ -41,6 +51,7 @@ class SetStruct extends FFFirebaseStruct {
   Map<String, dynamic> toMap() => {
         'weight': _weight,
         'reps': _reps,
+        'number': _number,
       }.withoutNulls;
 
   @override
@@ -51,6 +62,10 @@ class SetStruct extends FFFirebaseStruct {
         ),
         'reps': serializeParam(
           _reps,
+          ParamType.int,
+        ),
+        'number': serializeParam(
+          _number,
           ParamType.int,
         ),
       }.withoutNulls;
@@ -66,6 +81,11 @@ class SetStruct extends FFFirebaseStruct {
           ParamType.int,
           false,
         ),
+        number: deserializeParam(
+          data['number'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -73,16 +93,20 @@ class SetStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
-    return other is SetStruct && weight == other.weight && reps == other.reps;
+    return other is SetStruct &&
+        weight == other.weight &&
+        reps == other.reps &&
+        number == other.number;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([weight, reps]);
+  int get hashCode => const ListEquality().hash([weight, reps, number]);
 }
 
 SetStruct createSetStruct({
   int? weight,
   int? reps,
+  int? number,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -91,6 +115,7 @@ SetStruct createSetStruct({
     SetStruct(
       weight: weight,
       reps: reps,
+      number: number,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

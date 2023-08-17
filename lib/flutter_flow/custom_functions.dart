@@ -14,6 +14,6 @@ import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 List<SetStruct> createSets() {
-  SetStruct set1 = SetStruct(reps: 10, weight: 145);
+  SetStruct set1 = SetStruct(reps: 10, weight: 145, number: 1);
   return <SetStruct>[set1];
 }
