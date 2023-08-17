@@ -112,11 +112,11 @@ class _LanguagePickerItem extends StatelessWidget {
     Widget flagWidget = Container();
     if (flagInfo is String) {
       final flagEmoji = EmojiConverter.fromAlpha2CountryCode(flagInfo);
-      flagWidget = Text(
-        flagEmoji,
-        style: const TextStyle(
-          fontSize: 20.0,
-          height: 1.5,
+      flagWidget = Padding(
+        padding: const EdgeInsets.only(bottom: 2.0),
+        child: Text(
+          flagEmoji,
+          style: const TextStyle(fontSize: 20.0),
         ),
       );
     } else if (flagInfo is Map) {

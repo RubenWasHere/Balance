@@ -1366,21 +1366,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '重量',
       'zh_Hant': '重量',
     },
-    '1j2bbvdj': {
-      'en': 'Timer..',
-      'af': '',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'hi': '',
-      'ja': '',
-      'nl': '',
-      'sv': '',
-      'tr': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
     'qq3pju32': {
       'en': 'Notes',
       'af': '',
@@ -1396,7 +1381,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'akhiwx9w': {
+    'f54ueld5': {
       'en': 'New Set',
       'af': '',
       'ar': '',
@@ -1444,7 +1429,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // inputWeight
   {
-    'fepool91': {
+    '6roygyi2': {
       'en': 'Label here...',
       'af': '',
       'ar': '',
@@ -1462,7 +1447,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // inputReps
   {
-    'i5ob8aap': {
+    '040b4rai': {
       'en': 'Label here...',
       'af': '',
       'ar': '',
