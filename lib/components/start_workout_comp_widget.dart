@@ -186,7 +186,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        '8d9zq124' /* Set */,
+                                        'rbbpbxkf' /* Set */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
