@@ -1,5 +1,7 @@
 import '/backend/backend.dart';
 import '/components/exercises_comp_widget.dart';
+import '/components/input_reps_widget.dart';
+import '/components/input_weight_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -64,7 +66,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      '2p8jmy4d' /* Weight */,
+                      '2p8jmy4d' /* Workout */,
                     ),
                     style: FlutterFlowTheme.of(context).headlineMedium,
                   ),
@@ -114,7 +116,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
               children: [
                 Text(
                   FFLocalizations.of(context).getText(
-                    '9hfrnbzt' /* Timer.. */,
+                    '1j2bbvdj' /* Timer.. */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
@@ -125,7 +127,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
               children: [
                 Text(
                   FFLocalizations.of(context).getText(
-                    'pmkg36t4' /* Notes */,
+                    'qq3pju32' /* Notes */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
@@ -141,29 +143,92 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                   itemCount: exercise.length,
                   itemBuilder: (context, exerciseIndex) {
                     final exerciseItem = exercise[exerciseIndex];
-                    return StreamBuilder<ExercisesRecord>(
-                      stream: ExercisesRecord.getDocument(
-                          exerciseItem.exerciseRef!),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: SpinKitFoldingCube(
-                                color: Color(0xFF00D3FF),
-                                size: 50.0,
-                              ),
-                            ),
-                          );
-                        }
-                        final textExercisesRecord = snapshot.data!;
-                        return Text(
-                          textExercisesRecord.name,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        );
-                      },
+                    return Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        StreamBuilder<ExercisesRecord>(
+                          stream: ExercisesRecord.getDocument(
+                              exerciseItem.exerciseRef!),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: SpinKitFoldingCube(
+                                    color: Color(0xFF00D3FF),
+                                    size: 50.0,
+                                  ),
+                                ),
+                              );
+                            }
+                            final textExercisesRecord = snapshot.data!;
+                            return Text(
+                              textExercisesRecord.name,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            );
+                          },
+                        ),
+                        Builder(
+                          builder: (context) {
+                            final currentSet = exerciseItem.sets.toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: currentSet.length,
+                              itemBuilder: (context, currentSetIndex) {
+                                final currentSetItem =
+                                    currentSet[currentSetIndex];
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '8d9zq124' /* Set */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                    Expanded(
+                                      child: InputWeightWidget(
+                                        key: Key(
+                                            'Keycvn_${currentSetIndex}_of_${currentSet.length}'),
+                                        parameter1: currentSetItem.weight,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: InputRepsWidget(
+                                        key: Key(
+                                            'Keyhwe_${currentSetIndex}_of_${currentSet.length}'),
+                                        parameter1: currentSetItem.reps,
+                                      ),
+                                    ),
+                                    FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      borderRadius: 5.0,
+                                      borderWidth: 1.0,
+                                      buttonSize: 40.0,
+                                      fillColor: Color(0x004B39EF),
+                                      icon: Icon(
+                                        Icons.delete,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () {
+                                        print('IconButton pressed ...');
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ],
                     );
                   },
                 );

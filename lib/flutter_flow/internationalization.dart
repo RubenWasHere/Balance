@@ -1303,7 +1303,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // historyEmpty
   {
-    'qq70pl4r': {
+    '6chslxu9': {
       'en': 'No Workouts Performed Yet :(',
       'af': '',
       'ar': '',
@@ -1318,7 +1318,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '5nmn07hj': {
+    'co5anqtx': {
       'en': 'Completed Workouts Will Appear Here.',
       'af': '',
       'ar': '',
@@ -1333,7 +1333,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '49evsb7o': {
+    'lss3ce9o': {
       'en': 'START WORKOUT',
       'af': '',
       'ar': '',
@@ -1352,7 +1352,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // startWorkoutComp
   {
     '2p8jmy4d': {
-      'en': 'Weight',
+      'en': 'Workout',
       'af': 'Gewig',
       'ar': 'وزن',
       'de': 'Gewicht',
@@ -1366,7 +1366,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '重量',
       'zh_Hant': '重量',
     },
-    '9hfrnbzt': {
+    '1j2bbvdj': {
       'en': 'Timer..',
       'af': '',
       'ar': '',
@@ -1381,8 +1381,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'pmkg36t4': {
+    'qq3pju32': {
       'en': 'Notes',
+      'af': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'hi': '',
+      'ja': '',
+      'nl': '',
+      'sv': '',
+      'tr': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '8d9zq124': {
+      'en': 'Set',
       'af': '',
       'ar': '',
       'de': '',
@@ -1425,6 +1440,42 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Antrenman Geçmişi',
       'zh_Hans': '锻炼历史',
       'zh_Hant': '鍛煉歷史',
+    },
+  },
+  // inputWeight
+  {
+    'ol4a44lr': {
+      'en': 'Label here...',
+      'af': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'hi': '',
+      'ja': '',
+      'nl': '',
+      'sv': '',
+      'tr': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // inputReps
+  {
+    'pnt6w32s': {
+      'en': 'Label here...',
+      'af': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'hi': '',
+      'ja': '',
+      'nl': '',
+      'sv': '',
+      'tr': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
     },
   },
   // Miscellaneous
