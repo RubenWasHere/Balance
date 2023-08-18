@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/exercises_comp_widget.dart';
@@ -9,7 +10,8 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:flutter/foundation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -19,7 +21,9 @@ import 'package:provider/provider.dart';
 class StartWorkoutCompModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  DateTime? datePicked;
+  // State field(s) for inputWorkoutName widget.
+  TextEditingController? inputWorkoutNameController;
+  String? Function(BuildContext, String?)? inputWorkoutNameControllerValidator;
   // State field(s) for Timer widget.
   int timerMilliseconds = 0;
   String timerValue = StopWatchTimer.getDisplayTime(
@@ -42,6 +46,7 @@ class StartWorkoutCompModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    inputWorkoutNameController?.dispose();
     timerController.dispose();
     inputWeightModels.dispose();
     inputRepsModels.dispose();

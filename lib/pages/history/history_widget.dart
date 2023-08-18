@@ -166,23 +166,42 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  listViewWorkoutsRecord.name,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                                Text(
-                                  listViewWorkoutsRecord.sets.length.toString(),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                                Text(
-                                  dateTimeFormat(
-                                    'yMMMd',
-                                    listViewWorkoutsRecord.timestamp!,
-                                    locale: FFLocalizations.of(context)
-                                        .languageCode,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    listViewWorkoutsRecord.name,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '3qoovqfs' /* Hello World */,
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    dateTimeFormat(
+                                      'yMMMd',
+                                      listViewWorkoutsRecord.timestamp!,
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                                Text(
+                                  listViewWorkoutsRecord.duration.toString(),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),

@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/exercises_comp_widget.dart';
@@ -9,7 +10,8 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:flutter/foundation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -44,6 +46,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
       _model.timerController.onExecute.add(StopWatchExecute.start);
     });
 
+    _model.inputWorkoutNameController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -74,52 +77,103 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        '2p8jmy4d' /* Workout */,
-                      ),
-                      style: FlutterFlowTheme.of(context).headlineMedium,
-                    ),
-                  ),
-                  Flexible(
-                    child: Align(
-                      alignment: AlignmentDirectional(1.0, 0.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          icon: Icon(
-                            Icons.add,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            final _datePickedDate = await showDatePicker(
-                              context: context,
-                              initialDate: getCurrentTimestamp,
-                              firstDate: getCurrentTimestamp,
-                              lastDate: DateTime(2050),
-                            );
-
-                            if (_datePickedDate != null) {
-                              setState(() {
-                                _model.datePicked = DateTime(
-                                  _datePickedDate.year,
-                                  _datePickedDate.month,
-                                  _datePickedDate.day,
-                                );
-                              });
-                            }
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                      child: TextFormField(
+                        controller: _model.inputWorkoutNameController,
+                        onChanged: (_) => EasyDebounce.debounce(
+                          '_model.inputWorkoutNameController',
+                          Duration(milliseconds: 2000),
+                          () async {
+                            setState(() {
+                              FFAppState().updateWorkoutStruct(
+                                (e) => e
+                                  ..name =
+                                      _model.inputWorkoutNameController.text,
+                              );
+                            });
                           },
                         ),
+                        autofocus: true,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                          hintText: FFLocalizations.of(context).getText(
+                            '9h7toev8' /* Enter Workout Name... */,
+                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          errorBorder: InputBorder.none,
+                          focusedErrorBorder: InputBorder.none,
+                        ),
+                        style: FlutterFlowTheme.of(context)
+                            .titleMedium
+                            .override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                        validator: _model.inputWorkoutNameControllerValidator
+                            .asValidator(context),
                       ),
+                    ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: () async {
+                      await WorkoutsRecord.createDoc(currentUserReference!)
+                          .set({
+                        ...createWorkoutsRecordData(
+                          name: FFAppState().workout.name,
+                          timestamp: getCurrentTimestamp,
+                          duration: _model.timerMilliseconds,
+                        ),
+                        'exercises': getExerciseListFirestoreData(
+                          FFAppState().workout.exercises,
+                        ),
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Workout Complete! ',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor: Color(0xFF5EC5FF),
+                        ),
+                      );
+                      await Future.delayed(const Duration(milliseconds: 1000));
+                      Navigator.pop(context);
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      '0dy4t8i7' /* FINISH */,
+                    ),
+                    options: FFButtonOptions(
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFF5EC5FF),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                 ],
