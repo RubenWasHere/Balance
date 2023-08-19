@@ -1366,7 +1366,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // startWorkoutComp
   {
-    '9h7toev8': {
+    'tkhem64b': {
       'en': 'Enter Workout Name...',
       'af': '',
       'ar': '',
@@ -1381,7 +1381,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '0dy4t8i7': {
+    '3fk3irae': {
       'en': 'FINISH',
       'af': '',
       'ar': '',

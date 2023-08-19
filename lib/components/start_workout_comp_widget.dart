@@ -101,7 +101,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                         decoration: InputDecoration(
                           labelStyle: FlutterFlowTheme.of(context).labelMedium,
                           hintText: FFLocalizations.of(context).getText(
-                            '9h7toev8' /* Enter Workout Name... */,
+                            'tkhem64b' /* Enter Workout Name... */,
                           ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .titleMedium
@@ -138,6 +138,32 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                           FFAppState().workout.exercises,
                         ),
                       });
+                      var confirmDialogResponse = await showDialog<bool>(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Finish Workout'),
+                                content: Text(
+                                    'Are you sure you wou would like to finish this workout?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(
+                                        alertDialogContext, false),
+                                    child: Text('Cancel'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext, true),
+                                    child: Text('Confirm'),
+                                  ),
+                                ],
+                              );
+                            },
+                          ) ??
+                          false;
+                      if (!confirmDialogResponse) {
+                        return;
+                      }
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
@@ -154,7 +180,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                       Navigator.pop(context);
                     },
                     text: FFLocalizations.of(context).getText(
-                      '0dy4t8i7' /* FINISH */,
+                      '3fk3irae' /* FINISH */,
                     ),
                     options: FFButtonOptions(
                       height: 40.0,

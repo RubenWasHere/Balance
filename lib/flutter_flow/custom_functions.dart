@@ -17,3 +17,12 @@ List<SetStruct> createSets() {
   SetStruct set1 = SetStruct(reps: 10, weight: 145, number: 1);
   return <SetStruct>[set1];
 }
+
+String formatDuration(int milliseconds) {
+  Duration duration = Duration(milliseconds: milliseconds);
+  int twoDigitMinutes = duration.inMinutes.remainder(60);
+  int twoDigitSeconds = duration.inSeconds.remainder(60);
+  String twoDigitMinutesStr = twoDigitMinutes.toString().padLeft(2, '0');
+  String twoDigitSecondsStr = twoDigitSeconds.toString().padLeft(2, '0');
+  return "$twoDigitMinutesStr:$twoDigitSecondsStr";
+}

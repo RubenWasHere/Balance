@@ -4,6 +4,7 @@ import '/components/history_empty_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -162,50 +163,55 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                               listViewWorkoutsRecordList[listViewIndex];
                           return Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    listViewWorkoutsRecord.name,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '3qoovqfs' /* Hello World */,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 30.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Text(
+                                      listViewWorkoutsRecord.name,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    dateTimeFormat(
-                                      'yMMMd',
-                                      listViewWorkoutsRecord.timestamp!,
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        '3qoovqfs' /* Hello World */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Text(
+                                      dateTimeFormat(
+                                        'yMMMd',
+                                        listViewWorkoutsRecord.timestamp!,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                  Text(
+                                    functions.formatDuration(
+                                        listViewWorkoutsRecord.duration),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
-                                ),
-                                Text(
-                                  listViewWorkoutsRecord.duration.toString(),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           );
                         },
