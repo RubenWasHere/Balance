@@ -93,122 +93,127 @@ class _HistoryWidgetState extends State<HistoryWidget> {
           ),
           body: SafeArea(
             top: true,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30.0,
-                        borderWidth: 1.0,
-                        buttonSize: 60.0,
-                        icon: Icon(
-                          Icons.arrow_back_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 32.0,
-                        ),
-                        onPressed: () async {
-                          context.safePop();
-                        },
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            't4zmdaj5' /* Workout History */,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        FlutterFlowIconButton(
+                          borderColor: Colors.transparent,
+                          borderRadius: 30.0,
+                          borderWidth: 1.0,
+                          buttonSize: 60.0,
+                          icon: Icon(
+                            Icons.arrow_back_rounded,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 32.0,
                           ),
-                          style: FlutterFlowTheme.of(context).headlineMedium,
+                          onPressed: () async {
+                            context.safePop();
+                          },
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                  child: StreamBuilder<List<WorkoutsRecord>>(
-                    stream: queryWorkoutsRecord(
-                      parent: currentUserReference,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: SpinKitFoldingCube(
-                              color: Color(0xFF00D3FF),
-                              size: 50.0,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              't4zmdaj5' /* Workout History */,
                             ),
+                            style: FlutterFlowTheme.of(context).headlineMedium,
                           ),
-                        );
-                      }
-                      List<WorkoutsRecord> listViewWorkoutsRecordList =
-                          snapshot.data!;
-                      if (listViewWorkoutsRecordList.isEmpty) {
-                        return HistoryEmptyWidget();
-                      }
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewWorkoutsRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewWorkoutsRecord =
-                              listViewWorkoutsRecordList[listViewIndex];
-                          return Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 30.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      listViewWorkoutsRecord.name,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      dateTimeFormat(
-                                        'yMMMd',
-                                        listViewWorkoutsRecord.timestamp!,
-                                        locale: FFLocalizations.of(context)
-                                            .languageCode,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ),
-                                  Text(
-                                    functions.formatDuration(
-                                        listViewWorkoutsRecord.duration),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: StreamBuilder<List<WorkoutsRecord>>(
+                      stream: queryWorkoutsRecord(
+                        parent: currentUserReference,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitFoldingCube(
+                                color: Color(0xFF00D3FF),
+                                size: 50.0,
                               ),
                             ),
                           );
-                        },
-                      );
-                    },
+                        }
+                        List<WorkoutsRecord> listViewWorkoutsRecordList =
+                            snapshot.data!;
+                        if (listViewWorkoutsRecordList.isEmpty) {
+                          return HistoryEmptyWidget();
+                        }
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listViewWorkoutsRecordList.length,
+                          itemBuilder: (context, listViewIndex) {
+                            final listViewWorkoutsRecord =
+                                listViewWorkoutsRecordList[listViewIndex];
+                            return Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 30.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 10.0, 0.0),
+                                      child: Text(
+                                        listViewWorkoutsRecord.name,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 10.0, 0.0),
+                                      child: Text(
+                                        dateTimeFormat(
+                                          'yMMMd',
+                                          listViewWorkoutsRecord.timestamp!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                    Text(
+                                      functions.formatDuration(
+                                          listViewWorkoutsRecord.duration),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

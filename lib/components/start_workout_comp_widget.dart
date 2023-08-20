@@ -70,7 +70,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
         padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 30.0),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -252,175 +252,181 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                       return Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            StreamBuilder<ExercisesRecord>(
-                              stream: ExercisesRecord.getDocument(
-                                  exerciseItem.exerciseRef!),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: SpinKitFoldingCube(
-                                        color: Color(0xFF00D3FF),
-                                        size: 50.0,
+                        child: SingleChildScrollView(
+                          primary: false,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              StreamBuilder<ExercisesRecord>(
+                                stream: ExercisesRecord.getDocument(
+                                    exerciseItem.exerciseRef!),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: SpinKitFoldingCube(
+                                          color: Color(0xFF00D3FF),
+                                          size: 50.0,
+                                        ),
                                       ),
-                                    ),
+                                    );
+                                  }
+                                  final textExercisesRecord = snapshot.data!;
+                                  return Text(
+                                    textExercisesRecord.name,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   );
-                                }
-                                final textExercisesRecord = snapshot.data!;
-                                return Text(
-                                  textExercisesRecord.name,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                );
-                              },
-                            ),
-                            Builder(
-                              builder: (context) {
-                                final currentSet = exerciseItem.sets.toList();
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: currentSet.length,
-                                  itemBuilder: (context, currentSetIndex) {
-                                    final currentSetItem =
-                                        currentSet[currentSetIndex];
-                                    return Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Flexible(
-                                          child: Text(
-                                            currentSetItem.number.toString(),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: wrapWithModel(
-                                            model: _model.inputWeightModels
-                                                .getModel(
-                                              '1${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}',
-                                              currentSetIndex,
+                                },
+                              ),
+                              Builder(
+                                builder: (context) {
+                                  final currentSet = exerciseItem.sets.toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: currentSet.length,
+                                    itemBuilder: (context, currentSetIndex) {
+                                      final currentSetItem =
+                                          currentSet[currentSetIndex];
+                                      return Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Flexible(
+                                            child: Text(
+                                              currentSetItem.number.toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
                                             ),
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            updateOnChange: true,
-                                            child: InputWeightWidget(
-                                              key: Key(
-                                                'Keycvn_${'1${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}'}',
+                                          ),
+                                          Expanded(
+                                            child: wrapWithModel(
+                                              model: _model.inputWeightModels
+                                                  .getModel(
+                                                '1${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}',
+                                                currentSetIndex,
                                               ),
-                                              parameter1: currentSetItem.weight,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: wrapWithModel(
-                                            model:
-                                                _model.inputRepsModels.getModel(
-                                              '2${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}',
-                                              currentSetIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            updateOnChange: true,
-                                            child: InputRepsWidget(
-                                              key: Key(
-                                                'Keyhwe_${'2${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}'}',
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              updateOnChange: true,
+                                              child: InputWeightWidget(
+                                                key: Key(
+                                                  'Keycvn_${'1${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}'}',
+                                                ),
+                                                parameter1:
+                                                    currentSetItem.weight,
                                               ),
-                                              parameter1: currentSetItem.reps,
                                             ),
                                           ),
-                                        ),
-                                        if (currentSetIndex ==
-                                            (exerciseItem.sets.length - 1))
-                                          FlutterFlowIconButton(
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            borderRadius: 5.0,
-                                            borderWidth: 1.0,
-                                            buttonSize: 40.0,
-                                            fillColor: Color(0x004B39EF),
-                                            icon: Icon(
-                                              Icons.delete,
-                                              color:
+                                          Expanded(
+                                            child: wrapWithModel(
+                                              model: _model.inputRepsModels
+                                                  .getModel(
+                                                '2${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}',
+                                                currentSetIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              updateOnChange: true,
+                                              child: InputRepsWidget(
+                                                key: Key(
+                                                  'Keyhwe_${'2${currentSetItem.number.toString()}${exerciseItem.exerciseRef?.id}'}',
+                                                ),
+                                                parameter1: currentSetItem.reps,
+                                              ),
+                                            ),
+                                          ),
+                                          if (currentSetIndex ==
+                                              (exerciseItem.sets.length - 1))
+                                            FlutterFlowIconButton(
+                                              borderColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              size: 24.0,
+                                              borderRadius: 5.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 40.0,
+                                              fillColor: Color(0x004B39EF),
+                                              icon: Icon(
+                                                Icons.delete,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                              onPressed: () async {
+                                                setState(() {
+                                                  FFAppState()
+                                                      .updateWorkoutStruct(
+                                                    (e) => e
+                                                      ..updateExercises(
+                                                        (e) => e[exerciseIndex]
+                                                          ..updateSets(
+                                                            (e) => e.removeAt(
+                                                                currentSetIndex),
+                                                          ),
+                                                      ),
+                                                  );
+                                                });
+                                              },
                                             ),
-                                            onPressed: () async {
-                                              setState(() {
-                                                FFAppState()
-                                                    .updateWorkoutStruct(
-                                                  (e) => e
-                                                    ..updateExercises(
-                                                      (e) => e[exerciseIndex]
-                                                        ..updateSets(
-                                                          (e) => e.removeAt(
-                                                              currentSetIndex),
-                                                        ),
-                                                    ),
-                                                );
-                                              });
-                                            },
-                                          ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                setState(() {
-                                  FFAppState().updateWorkoutStruct(
-                                    (e) => e
-                                      ..updateExercises(
-                                        (e) => e[exerciseIndex]
-                                          ..updateSets(
-                                            (e) => e.add(SetStruct(
-                                              weight: 200,
-                                              reps: 10,
-                                              number:
-                                                  exerciseItem.sets.length + 1,
-                                            )),
-                                          ),
-                                      ),
+                                        ],
+                                      );
+                                    },
                                   );
-                                });
-                                HapticFeedback.mediumImpact();
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'f54ueld5' /* New Set */,
+                                },
                               ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF5EC5FF),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: Colors.white,
-                                    ),
-                                elevation: 3.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  setState(() {
+                                    FFAppState().updateWorkoutStruct(
+                                      (e) => e
+                                        ..updateExercises(
+                                          (e) => e[exerciseIndex]
+                                            ..updateSets(
+                                              (e) => e.add(SetStruct(
+                                                weight: 200,
+                                                reps: 10,
+                                                number:
+                                                    exerciseItem.sets.length +
+                                                        1,
+                                              )),
+                                            ),
+                                        ),
+                                    );
+                                  });
+                                  HapticFeedback.mediumImpact();
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'f54ueld5' /* New Set */,
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFF5EC5FF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       );
                     },
