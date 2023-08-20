@@ -183,17 +183,6 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 10.0, 0.0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '3qoovqfs' /* Hello World */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
                                       dateTimeFormat(
                                         'yMMMd',
                                         listViewWorkoutsRecord.timestamp!,

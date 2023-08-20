@@ -436,7 +436,7 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                                 builder: (context) {
                                                   final exercise =
                                                       listViewTemplatesRecord
-                                                          .exerciseRefs
+                                                          .exercises
                                                           .toList();
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
@@ -453,7 +453,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                                           ExercisesRecord>(
                                                         stream: ExercisesRecord
                                                             .getDocument(
-                                                                exerciseItem),
+                                                                exerciseItem
+                                                                    .exerciseRef!),
                                                         builder: (context,
                                                             snapshot) {
                                                           // Customize what your widget looks like when it's loading.
