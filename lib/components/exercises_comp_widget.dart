@@ -137,16 +137,7 @@ class _ExercisesCompWidgetState extends State<ExercisesCompWidget> {
                               _model.total = _model.total! + -1;
                             });
                             setState(() {
-                              FFAppState().updateWorkoutStruct(
-                                (e) => e
-                                  ..updateExercises(
-                                    (e) => e.add(ExerciseStruct(
-                                      exerciseRef:
-                                          listViewExercisesRecord.reference,
-                                      sets: functions.createSets(),
-                                    )),
-                                  ),
-                              );
+                              FFAppState().workout = WorkoutStruct();
                             });
                           }
                         },
