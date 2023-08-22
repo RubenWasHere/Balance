@@ -770,7 +770,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '鍛煉歷史',
     },
     'tviu6xrv': {
-      'en': 'Weight',
+      'en': 'Workouts This Week',
       'af': 'Gewig',
       'ar': 'وزن',
       'de': 'Gewicht',

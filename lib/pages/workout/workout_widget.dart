@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/start_workout_comp_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -506,8 +507,36 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                           color: Color(0xFF57636C),
                                           size: 20.0,
                                         ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
+                                        onPressed: () async {
+                                          setState(() {
+                                            FFAppState().workout =
+                                                WorkoutStruct(
+                                              name: 'Random workout',
+                                              exercises: listViewTemplatesRecord
+                                                  .exercises,
+                                            );
+                                          });
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () =>
+                                                    FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      StartWorkoutCompWidget(),
+                                                ),
+                                              );
+                                            },
+                                          ).then((value) => setState(() {}));
                                         },
                                       ),
                                     ),

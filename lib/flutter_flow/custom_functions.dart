@@ -26,3 +26,19 @@ String formatDuration(int milliseconds) {
   String twoDigitSecondsStr = twoDigitSeconds.toString().padLeft(2, '0');
   return "$twoDigitMinutesStr:$twoDigitSecondsStr";
 }
+
+List<String> getLabels() {
+  /// Returning String values as days of the week
+  return <String>["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+}
+
+List<int> getFrequency(List<DateTime> workouts) {
+  List<int> frequency = List.filled(7, 0);
+
+  for (var workout in workouts) {
+    int dayOfWeek = workout.weekday;
+    frequency[dayOfWeek - 1]++;
+  }
+
+  return frequency;
+}
