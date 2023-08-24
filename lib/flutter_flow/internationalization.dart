@@ -180,6 +180,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Settings
   {
+    '5ixzwgjl': {
+      'en': 'Settings',
+      'af': 'Instellings',
+      'ar': 'إعدادات',
+      'de': 'Einstellungen',
+      'es': 'Ajustes',
+      'fr': 'Paramètres',
+      'hi': 'समायोजन',
+      'ja': '設定',
+      'nl': 'Instellingen',
+      'sv': 'inställningar',
+      'tr': 'Ayarlar',
+      'zh_Hans': '设置',
+      'zh_Hant': '設置',
+    },
     'swzt9q4e': {
       'en': 'Settings',
       'af': 'Instellings',
@@ -241,7 +256,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '主題',
     },
     'whjue41r': {
-      'en': 'Notification Settings',
+      'en': 'Notifications',
       'af': 'Kennisgewinginstellings',
       'ar': 'إعدادات الإشعار',
       'de': 'Benachrichtigungseinstellungen',
@@ -269,21 +284,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Destek',
       'zh_Hans': '支持',
       'zh_Hant': '支持',
-    },
-    '5ixzwgjl': {
-      'en': 'Settings',
-      'af': 'Instellings',
-      'ar': 'إعدادات',
-      'de': 'Einstellungen',
-      'es': 'Ajustes',
-      'fr': 'Paramètres',
-      'hi': 'समायोजन',
-      'ja': '設定',
-      'nl': 'Instellingen',
-      'sv': 'inställningar',
-      'tr': 'Ayarlar',
-      'zh_Hans': '设置',
-      'zh_Hant': '設置',
     },
     't9jxktoz': {
       'en': 'Settings',
@@ -503,7 +503,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Workout
   {
     'ghjgh5w0': {
-      'en': 'Recommended Workouts',
+      'en': 'Let\'s Workout',
       'af': 'Aanbevole oefensessies',
       'ar': 'التدريبات الموصى بها',
       'de': 'Empfohlene Trainingseinheiten',
@@ -1381,21 +1381,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'qq3pju32': {
-      'en': 'Notes',
-      'af': '',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'hi': '',
-      'ja': '',
-      'nl': '',
-      'sv': '',
-      'tr': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
     'f54ueld5': {
       'en': 'New Set',
       'af': '',
@@ -1445,7 +1430,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // inputWeight
   {
     '6roygyi2': {
-      'en': 'Label here...',
+      'en': 'Weight',
       'af': '',
       'ar': '',
       'de': '',
@@ -1463,7 +1448,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // inputReps
   {
     '040b4rai': {
-      'en': 'Label here...',
+      'en': 'Reps',
       'af': '',
       'ar': '',
       'de': '',

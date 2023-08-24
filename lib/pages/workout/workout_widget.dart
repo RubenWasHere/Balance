@@ -90,21 +90,46 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+          child: Container(
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/Copy_of_Health_(2).png',
+                ).image,
+              ),
+            ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 0.0, 0.0),
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        'ghjgh5w0' /* Recommended Workouts */,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF127300),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(10.0),
+                        topLeft: Radius.circular(0.0),
+                        topRight: Radius.circular(0.0),
                       ),
-                      style: FlutterFlowTheme.of(context).headlineMedium,
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          'ghjgh5w0' /* Let's Workout */,
+                        ),
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Outfit',
+                              color: Colors.white,
+                            ),
+                      ),
                     ),
                   ),
                   Container(
@@ -254,7 +279,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
+                                    isDismissible: false,
                                     enableDrag: false,
+                                    useSafeArea: true,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(

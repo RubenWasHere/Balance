@@ -47,13 +47,10 @@ class _CurrentWorkoutWidgetState extends State<CurrentWorkoutWidget> {
             currentUserDocument?.colour,
             FlutterFlowTheme.of(context).primaryBackground,
           ),
-          body: SafeArea(
-            top: true,
-            child: wrapWithModel(
-              model: _model.startWorkoutCompModel,
-              updateCallback: () => setState(() {}),
-              child: StartWorkoutCompWidget(),
-            ),
+          body: wrapWithModel(
+            model: _model.startWorkoutCompModel,
+            updateCallback: () => setState(() {}),
+            child: StartWorkoutCompWidget(),
           ),
         ),
       ),

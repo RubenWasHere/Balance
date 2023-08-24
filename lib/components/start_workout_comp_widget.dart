@@ -69,6 +69,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 30.0),
         child: SingleChildScrollView(
+          primary: false,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -228,32 +229,22 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                   ),
                 ],
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
-                    FFLocalizations.of(context).getText(
-                      'qq3pju32' /* Notes */,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
-                ],
-              ),
               Builder(
                 builder: (context) {
                   final exercise = FFAppState().workout.exercises.toList();
                   return ListView.builder(
                     padding: EdgeInsets.zero,
+                    primary: false,
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemCount: exercise.length,
                     itemBuilder: (context, exerciseIndex) {
                       final exerciseItem = exercise[exerciseIndex];
-                      return Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
-                        child: SingleChildScrollView(
-                          primary: false,
+                      return Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 30.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -304,7 +295,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                                                       .bodyMedium,
                                             ),
                                           ),
-                                          Expanded(
+                                          Flexible(
                                             child: wrapWithModel(
                                               model: _model.inputWeightModels
                                                   .getModel(
@@ -323,7 +314,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                                               ),
                                             ),
                                           ),
-                                          Expanded(
+                                          Flexible(
                                             child: wrapWithModel(
                                               model: _model.inputRepsModels
                                                   .getModel(
@@ -343,36 +334,40 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                                           ),
                                           if (currentSetIndex ==
                                               (exerciseItem.sets.length - 1))
-                                            FlutterFlowIconButton(
-                                              borderColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              borderRadius: 5.0,
-                                              borderWidth: 1.0,
-                                              buttonSize: 40.0,
-                                              fillColor: Color(0x004B39EF),
-                                              icon: Icon(
-                                                Icons.delete,
-                                                color:
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 0.0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                size: 24.0,
+                                                borderRadius: 5.0,
+                                                buttonSize: 30.0,
+                                                fillColor: Color(0x004B39EF),
+                                                icon: Icon(
+                                                  Icons.delete,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 15.0,
+                                                ),
+                                                onPressed: () async {
+                                                  setState(() {
+                                                    FFAppState()
+                                                        .updateWorkoutStruct(
+                                                      (e) => e
+                                                        ..updateExercises(
+                                                          (e) =>
+                                                              e[exerciseIndex]
+                                                                ..updateSets(
+                                                                  (e) => e.removeAt(
+                                                                      currentSetIndex),
+                                                                ),
+                                                        ),
+                                                    );
+                                                  });
+                                                },
                                               ),
-                                              onPressed: () async {
-                                                setState(() {
-                                                  FFAppState()
-                                                      .updateWorkoutStruct(
-                                                    (e) => e
-                                                      ..updateExercises(
-                                                        (e) => e[exerciseIndex]
-                                                          ..updateSets(
-                                                            (e) => e.removeAt(
-                                                                currentSetIndex),
-                                                          ),
-                                                      ),
-                                                  );
-                                                });
-                                              },
                                             ),
                                         ],
                                       );

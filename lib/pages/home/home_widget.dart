@@ -116,109 +116,127 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ),
                 ],
                 centerTitle: false,
-                elevation: 2.0,
               ),
               body: SafeArea(
                 top: true,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Flexible(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 10.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    context.pushNamed('History');
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    '2tzrzp82' /* Workout History */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        100.0, 0.0, 100.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFF00AEFF),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium,
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 10.0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: Image.asset(
+                        'assets/images/Copy_of_Health_(2).png',
+                      ).image,
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.0, 0.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      context.pushNamed('History');
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      '2tzrzp82' /* Workout History */,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    options: FFButtonOptions(
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          100.0, 0.0, 100.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: Color(0xFF00AEFF),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium,
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 10.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'tviu6xrv' /* Workouts This Week */,
+                              ),
+                              style:
+                                  FlutterFlowTheme.of(context).headlineMedium,
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
+                      Flexible(
+                        child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'tviu6xrv' /* Workouts This Week */,
+                              12.0, 0.0, 12.0, 0.0),
+                          child: Container(
+                            height: 230.0,
+                            child: FlutterFlowBarChart(
+                              barData: [
+                                FFBarChartData(
+                                  yData: functions.getWeight(
+                                      homeWorkoutsRecordList
+                                          .map((e) => e.timestamp)
+                                          .withoutNulls
+                                          .toList()),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                )
+                              ],
+                              xLabels: functions.getLabels(),
+                              barWidth: 15.0,
+                              barBorderRadius: BorderRadius.circular(8.0),
+                              groupSpace: 20.0,
+                              chartStylingInfo: ChartStylingInfo(
+                                backgroundColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                showGrid: true,
+                                borderColor: Color(0xFF5EC5FF),
+                                borderWidth: 1.0,
+                              ),
+                              axisBounds: AxisBounds(),
+                              xAxisLabelInfo: AxisLabelInfo(
+                                showLabels: true,
+                                labelInterval: 10.0,
+                              ),
+                              yAxisLabelInfo: AxisLabelInfo(
+                                showLabels: true,
+                                labelInterval: 10.0,
+                                labelFormatter: LabelFormatter(
+                                  numberFormat: (val) => val.toString(),
+                                ),
+                              ),
                             ),
-                            style: FlutterFlowTheme.of(context).headlineMedium,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Flexible(
-                      child: Container(
-                        height: 230.0,
-                        child: FlutterFlowBarChart(
-                          barData: [
-                            FFBarChartData(
-                              yData: functions.getFrequency(
-                                  homeWorkoutsRecordList
-                                      .map((e) => e.timestamp)
-                                      .withoutNulls
-                                      .toList()),
-                              color: FlutterFlowTheme.of(context).primary,
-                            )
-                          ],
-                          xLabels: functions.getLabels(),
-                          barWidth: 15.0,
-                          barBorderRadius: BorderRadius.circular(8.0),
-                          groupSpace: 20.0,
-                          chartStylingInfo: ChartStylingInfo(
-                            backgroundColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            showGrid: true,
-                            borderColor:
-                                FlutterFlowTheme.of(context).secondaryText,
-                            borderWidth: 1.0,
-                          ),
-                          axisBounds: AxisBounds(),
-                          xAxisLabelInfo: AxisLabelInfo(
-                            showLabels: true,
-                            labelInterval: 10.0,
-                          ),
-                          yAxisLabelInfo: AxisLabelInfo(
-                            showLabels: true,
-                            labelInterval: 10.0,
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

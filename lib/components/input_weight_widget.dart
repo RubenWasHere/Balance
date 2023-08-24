@@ -56,7 +56,7 @@ class _InputWeightWidgetState extends State<InputWeightWidget> {
         obscureText: false,
         decoration: InputDecoration(
           labelText: FFLocalizations.of(context).getText(
-            '6roygyi2' /* Label here... */,
+            '6roygyi2' /* Weight */,
           ),
           labelStyle: FlutterFlowTheme.of(context).labelMedium,
           hintStyle: FlutterFlowTheme.of(context).labelMedium,
