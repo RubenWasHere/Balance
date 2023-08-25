@@ -32,7 +32,7 @@ List<String> getLabels() {
   return <String>["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 }
 
-List<int> getWeight(List<DateTime> workouts) {
+List<int> getFrequency(List<DateTime> workouts) {
   List<int> frequency = List.filled(7, 0);
 
   for (var workout in workouts) {

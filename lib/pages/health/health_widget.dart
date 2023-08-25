@@ -88,6 +88,20 @@ class _HealthWidgetState extends State<HealthWidget> {
             centerTitle: false,
             elevation: 2.0,
           ),
+          body: SafeArea(
+            top: true,
+            child: Container(
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: Image.asset(
+                    'assets/images/Copy_of_Copy_of_Health_(2).png',
+                  ).image,
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

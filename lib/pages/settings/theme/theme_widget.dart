@@ -296,121 +296,80 @@ class _ThemeWidgetState extends State<ThemeWidget> {
                 Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      var confirmDialogResponse = await showDialog<bool>(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return AlertDialog(
-                                title: Text('Logout'),
-                                content:
-                                    Text('Are you sure you want to logout?'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () => Navigator.pop(
-                                        alertDialogContext, false),
-                                    child: Text('Cancel'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext, true),
-                                    child: Text('Confirm'),
-                                  ),
-                                ],
-                              );
-                            },
-                          ) ??
-                          false;
-                      if (!confirmDialogResponse) {
-                        return;
-                      }
-                      GoRouter.of(context).prepareAuthEvent();
-                      await authManager.signOut();
-                      GoRouter.of(context).clearRedirectLocation();
+                  child: Container(
+                    width: double.infinity,
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          12.0, 12.0, 12.0, 12.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          final _colorPickedColor = await showFFColorPicker(
+                            context,
+                            currentColor: _model.colorPicked ??=
+                                FlutterFlowTheme.of(context).primary,
+                            showRecentColors: true,
+                            allowOpacity: true,
+                            textColor: FlutterFlowTheme.of(context).primaryText,
+                            secondaryTextColor:
+                                FlutterFlowTheme.of(context).secondaryText,
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            primaryButtonBackgroundColor:
+                                FlutterFlowTheme.of(context).primary,
+                            primaryButtonTextColor: Colors.white,
+                            primaryButtonBorderColor: Colors.transparent,
+                            displayAsBottomSheet: isMobileWidth(context),
+                          );
 
-                      context.goNamedAuth('SignUp', context.mounted);
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: 60.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 12.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            final _colorPickedColor = await showFFColorPicker(
-                              context,
-                              currentColor: _model.colorPicked ??=
-                                  FlutterFlowTheme.of(context).primary,
-                              showRecentColors: true,
-                              allowOpacity: true,
-                              textColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              secondaryTextColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              backgroundColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              primaryButtonBackgroundColor:
-                                  FlutterFlowTheme.of(context).primary,
-                              primaryButtonTextColor: Colors.white,
-                              primaryButtonBorderColor: Colors.transparent,
-                              displayAsBottomSheet: isMobileWidth(context),
-                            );
+                          if (_colorPickedColor != null) {
+                            setState(
+                                () => _model.colorPicked = _colorPickedColor);
+                          }
 
-                            if (_colorPickedColor != null) {
-                              setState(
-                                  () => _model.colorPicked = _colorPickedColor);
-                            }
-
-                            await currentUserReference!
-                                .update(createUsersRecordData(
-                              colour: _model.colorPicked,
-                            ));
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.format_paint,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                          await currentUserReference!
+                              .update(createUsersRecordData(
+                            colour: _model.colorPicked,
+                          ));
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(
+                              Icons.format_paint,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '8wmoz7jn' /* Custom Background */,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyLarge,
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '8wmoz7jn' /* Custom Background */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context).bodyLarge,
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.9, 0.0),
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 18.0,
                                 ),
                               ),
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.9, 0.0),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 18.0,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

@@ -125,13 +125,42 @@ class _HomeWidgetState extends State<HomeWidget> {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(
-                        'assets/images/Copy_of_Health_(2).png',
+                        'assets/images/Copy_of_Copy_of_Health_(2).png',
                       ).image,
                     ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
+                      Align(
+                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFF127300),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(0.0),
+                              bottomRight: Radius.circular(10.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 4.0, 12.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'xuw9dcd1' /* Welcome. */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    color: Colors.white,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 10.0),
@@ -200,12 +229,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                             child: FlutterFlowBarChart(
                               barData: [
                                 FFBarChartData(
-                                  yData: functions.getWeight(
+                                  yData: functions.getFrequency(
                                       homeWorkoutsRecordList
                                           .map((e) => e.timestamp)
                                           .withoutNulls
                                           .toList()),
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: Color(0xFF5EC5FF),
                                 )
                               ],
                               xLabels: functions.getLabels(),

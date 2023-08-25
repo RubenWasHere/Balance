@@ -30,6 +30,7 @@ dependencies:
   cloud_firestore: 4.8.0
   cloud_firestore_platform_interface: 5.15.0
   cloud_firestore_web: 3.6.0
+  confetti: 0.6.0
   easy_debounce: 2.0.1
   emoji_flag_converter: 1.1.0
   file_picker: 5.2.6
