@@ -14,11 +14,13 @@ import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 List<SetStruct> createSets() {
+  ///Creates first set with 0 reps, 0 weight
   SetStruct set1 = SetStruct(reps: 0, weight: 0, number: 1);
   return <SetStruct>[set1];
 }
 
 String formatDuration(int milliseconds) {
+  ///Takes duration in miliseconds and converts into minutes and seconds
   Duration duration = Duration(milliseconds: milliseconds);
   int twoDigitMinutes = duration.inMinutes.remainder(60);
   int twoDigitSeconds = duration.inSeconds.remainder(60);

@@ -121,7 +121,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                 top: true,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(

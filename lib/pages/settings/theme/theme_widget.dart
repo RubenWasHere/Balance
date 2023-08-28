@@ -168,6 +168,15 @@ class _ThemeWidgetState extends State<ThemeWidget> {
                   ),
                 ),
                 Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'ibuj4bsj' /* Theme */,
+                    ),
+                    style: FlutterFlowTheme.of(context).labelLarge,
+                  ),
+                ),
+                Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                   child: Container(

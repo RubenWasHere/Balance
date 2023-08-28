@@ -384,8 +384,8 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                                           (e) => e[exerciseIndex]
                                             ..updateSets(
                                               (e) => e.add(SetStruct(
-                                                weight: 200,
-                                                reps: 10,
+                                                weight: 0,
+                                                reps: 0,
                                                 number:
                                                     exerciseItem.sets.length +
                                                         1,

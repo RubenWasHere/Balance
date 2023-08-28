@@ -134,11 +134,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ThemeWidget(),
         ),
         FFRoute(
-          name: 'Sound',
-          path: '/sound',
-          builder: (context, params) => SoundWidget(),
-        ),
-        FFRoute(
           name: 'History',
           path: '/history',
           builder: (context, params) => HistoryWidget(),
