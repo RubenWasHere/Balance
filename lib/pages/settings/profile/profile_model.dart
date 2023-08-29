@@ -17,6 +17,7 @@ class ProfileModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -25,10 +26,34 @@ class ProfileModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  String? _textControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'anb5kbi0' /* Characters must be from 3-12 */,
+      );
+    }
+
+    if (val.length < 3) {
+      return FFLocalizations.of(context).getText(
+        'b8syjk7e' /* Your username is too short */,
+      );
+    }
+    if (val.length > 12) {
+      return FFLocalizations.of(context).getText(
+        '69mjcu0r' /* Your username is too long */,
+      );
+    }
+    if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
+      return 'Must start with a letter and can only contain letters, digits and - or _.';
+    }
+    return null;
+  }
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    textControllerValidator = _textControllerValidator;
+  }
 
   void dispose() {
     unfocusNode.dispose();
