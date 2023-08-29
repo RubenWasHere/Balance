@@ -362,6 +362,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       '_model.textController',
                                       Duration(milliseconds: 2000),
                                       () async {
+                                        if (_model.formKey.currentState ==
+                                                null ||
+                                            !_model.formKey.currentState!
+                                                .validate()) {
+                                          return;
+                                        }
                                         var confirmDialogResponse =
                                             await showDialog<bool>(
                                                   context: context,

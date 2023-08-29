@@ -817,7 +817,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '更换名字',
       'zh_Hant': '更換名字',
     },
-    'anb5kbi0': {
+    '241truex': {
       'en': 'Characters must be from 3-12',
       'af': '',
       'ar': '',
@@ -832,7 +832,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'b8syjk7e': {
+    'y9z1o4tj': {
       'en': 'Your username is too short',
       'af': '',
       'ar': '',
@@ -847,7 +847,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '69mjcu0r': {
+    'h9cxbhgb': {
       'en': 'Your username is too long',
       'af': '',
       'ar': '',
@@ -862,7 +862,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '6kbxkxjb': {
+    'ufzdee43': {
       'en': 'Please choose an option from the dropdown',
       'af': '',
       'ar': '',
