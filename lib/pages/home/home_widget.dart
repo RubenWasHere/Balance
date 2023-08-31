@@ -124,7 +124,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     image: DecorationImage(
                       fit: BoxFit.fill,
                       image: Image.asset(
-                        'assets/images/Copy_of_Copy_of_Health_(3).png',
+                        'assets/images/Copy_of_Copy_of_Health_(4).png',
                       ).image,
                     ),
                   ),
@@ -244,7 +244,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 backgroundColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 showGrid: true,
-                                borderColor: Color(0xFF5EC5FF),
+                                borderColor: Color(0xFF00AEFF),
                                 borderWidth: 1.0,
                               ),
                               axisBounds: AxisBounds(),

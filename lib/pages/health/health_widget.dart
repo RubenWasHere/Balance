@@ -91,12 +91,13 @@ class _HealthWidgetState extends State<HealthWidget> {
           body: SafeArea(
             top: true,
             child: Container(
+              width: double.infinity,
+              height: double.infinity,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
                 image: DecorationImage(
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                   image: Image.asset(
-                    'assets/images/Copy_of_Copy_of_Health_(2).png',
+                    'assets/images/Copy_of_Copy_of_Health_(4).png',
                   ).image,
                 ),
               ),
