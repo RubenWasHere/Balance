@@ -90,6 +90,7 @@ class _InputWeightWidgetState extends State<InputWeightWidget> {
           ),
         ),
         style: FlutterFlowTheme.of(context).bodyMedium,
+        keyboardType: const TextInputType.numberWithOptions(decimal: true),
         validator: _model.textControllerValidator.asValidator(context),
       ),
     );
