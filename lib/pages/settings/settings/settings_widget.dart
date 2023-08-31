@@ -447,11 +447,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   }
                                   await launchUrl(Uri(
                                       scheme: 'mailto',
-                                      path: currentUserEmail,
+                                      path: 'rubenbharot32@gmail.com',
                                       query: {
                                         'subject': 'Support',
                                         'body':
-                                            'Hi there, this email has been sent to you as you requested support, please reply with your issue and we will get back to you as soon as possible.',
+                                            '(Please Write Your Issue Here)',
                                       }
                                           .entries
                                           .map((MapEntry<String, String> e) =>

@@ -122,9 +122,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                       image: Image.asset(
-                        'assets/images/Copy_of_Copy_of_Health_(2).png',
+                        'assets/images/Copy_of_Copy_of_Health_(3).png',
                       ).image,
                     ),
                   ),
