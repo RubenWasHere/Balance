@@ -347,8 +347,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               key: _model.formKey,
                               autovalidateMode: AutovalidateMode.always,
                               child: Container(
-                                width: 100.0,
-                                height: 100.0,
+                                width: double.infinity,
+                                height: double.infinity,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -356,97 +356,102 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
-                                  child: TextFormField(
-                                    controller: _model.textController,
-                                    onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.textController',
-                                      Duration(milliseconds: 2000),
-                                      () async {
-                                        if (_model.formKey.currentState ==
-                                                null ||
-                                            !_model.formKey.currentState!
-                                                .validate()) {
-                                          return;
-                                        }
-                                        var confirmDialogResponse =
-                                            await showDialog<bool>(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return AlertDialog(
-                                                      title: Text('Username'),
-                                                      content: Text(
-                                                          'Are you sure you want to change your username?'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext,
-                                                                  false),
-                                                          child: Text('Cancel'),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext,
-                                                                  true),
-                                                          child:
-                                                              Text('Confirm'),
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                ) ??
-                                                false;
-                                        if (!confirmDialogResponse) {
-                                          return;
-                                        }
+                                  child: Container(
+                                    width: double.infinity,
+                                    child: TextFormField(
+                                      controller: _model.textController,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.textController',
+                                        Duration(milliseconds: 2000),
+                                        () async {
+                                          if (_model.formKey.currentState ==
+                                                  null ||
+                                              !_model.formKey.currentState!
+                                                  .validate()) {
+                                            return;
+                                          }
+                                          var confirmDialogResponse =
+                                              await showDialog<bool>(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return AlertDialog(
+                                                        title: Text('Username'),
+                                                        content: Text(
+                                                            'Are you sure you want to change your username?'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    false),
+                                                            child:
+                                                                Text('Cancel'),
+                                                          ),
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    true),
+                                                            child:
+                                                                Text('Confirm'),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  ) ??
+                                                  false;
+                                          if (!confirmDialogResponse) {
+                                            return;
+                                          }
 
-                                        await currentUserReference!
-                                            .update(createUsersRecordData(
-                                          displayName:
-                                              _model.textController.text,
-                                        ));
-                                      },
-                                    ),
-                                    textCapitalization: TextCapitalization.none,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge,
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'yk9n7qac' /* Change Name */,
+                                          await currentUserReference!
+                                              .update(createUsersRecordData(
+                                            displayName:
+                                                _model.textController.text,
+                                          ));
+                                        },
                                       ),
-                                      hintStyle: FlutterFlowTheme.of(context)
+                                      textCapitalization:
+                                          TextCapitalization.none,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge,
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'yk9n7qac' /* Change Name */,
+                                        ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                        errorStyle: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Color(0xFFFF0005),
+                                              lineHeight: 1.0,
+                                            ),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        focusedErrorBorder: InputBorder.none,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                             fontFamily: 'Readex Pro',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                      errorStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
                                             lineHeight: 1.5,
                                           ),
-                                      enabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      errorBorder: InputBorder.none,
-                                      focusedErrorBorder: InputBorder.none,
+                                      textAlign: TextAlign.start,
+                                      validator: _model.textControllerValidator
+                                          .asValidator(context),
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          lineHeight: 1.5,
-                                        ),
-                                    textAlign: TextAlign.start,
-                                    validator: _model.textControllerValidator
-                                        .asValidator(context),
                                   ),
                                 ),
                               ),

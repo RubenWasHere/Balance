@@ -437,20 +437,6 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                         },
                                       ),
                                     ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Color(0xFF5EC5FF),
-                                      borderRadius: 8.0,
-                                      borderWidth: 2.0,
-                                      buttonSize: 40.0,
-                                      icon: Icon(
-                                        Icons.more_vert,
-                                        color: Color(0xFF57636C),
-                                        size: 20.0,
-                                      ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
-                                      },
-                                    ),
                                   ],
                                 ),
                               ),

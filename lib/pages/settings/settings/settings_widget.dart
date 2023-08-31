@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
 
@@ -410,38 +411,86 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    Icons.help_outline_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'gdjpjpgx' /* Support */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge,
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.9, 0.0),
-                                    child: Icon(
-                                      Icons.arrow_forward_ios,
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  var confirmDialogResponse = await showDialog<
+                                          bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title:
+                                                Text('Send email to support'),
+                                            content: Text(
+                                                'Would you like to request support?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                                  if (!confirmDialogResponse) {
+                                    return;
+                                  }
+                                  await launchUrl(Uri(
+                                      scheme: 'mailto',
+                                      path: currentUserEmail,
+                                      query: {
+                                        'subject': 'Support',
+                                        'body':
+                                            'Hi there, this email has been sent to you as you requested support, please reply with your issue and we will get back to you as soon as possible.',
+                                      }
+                                          .entries
+                                          .map((MapEntry<String, String> e) =>
+                                              '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                                          .join('&')));
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Icon(
+                                      Icons.help_outline_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 18.0,
+                                      size: 24.0,
                                     ),
-                                  ),
-                                ],
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'gdjpjpgx' /* Support */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge,
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.9, 0.0),
+                                      child: Icon(
+                                        Icons.arrow_forward_ios,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 18.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
