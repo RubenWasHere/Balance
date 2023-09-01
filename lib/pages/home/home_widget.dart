@@ -208,7 +208,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                                12.0, 0.0, 0.0, 12.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'tviu6xrv' /* Workouts This Week */,

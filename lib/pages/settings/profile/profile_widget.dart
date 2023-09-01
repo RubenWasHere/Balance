@@ -345,7 +345,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             width: 250.0,
                             child: Form(
                               key: _model.formKey,
-                              autovalidateMode: AutovalidateMode.always,
+                              autovalidateMode: AutovalidateMode.disabled,
                               child: Container(
                                 width: double.infinity,
                                 height: double.infinity,

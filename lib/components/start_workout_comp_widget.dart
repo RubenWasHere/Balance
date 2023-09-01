@@ -80,66 +80,70 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                      child: TextFormField(
-                        controller: _model.inputWorkoutNameController,
-                        onChanged: (_) => EasyDebounce.debounce(
-                          '_model.inputWorkoutNameController',
-                          Duration(milliseconds: 2000),
-                          () async {
-                            setState(() {
-                              FFAppState().updateWorkoutStruct(
-                                (e) => e
-                                  ..name =
-                                      _model.inputWorkoutNameController.text,
-                              );
-                            });
-                          },
-                        ),
-                        autofocus: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                          hintText: FFLocalizations.of(context).getText(
-                            'tkhem64b' /* Enter Workout Name... */,
+                    child: Form(
+                      key: _model.formKey,
+                      autovalidateMode: AutovalidateMode.disabled,
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                        child: TextFormField(
+                          controller: _model.inputWorkoutNameController,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.inputWorkoutNameController',
+                            Duration(milliseconds: 2000),
+                            () async {
+                              setState(() {
+                                FFAppState().updateWorkoutStruct(
+                                  (e) => e
+                                    ..name =
+                                        _model.inputWorkoutNameController.text,
+                                );
+                              });
+                            },
                           ),
-                          hintStyle: FlutterFlowTheme.of(context)
+                          autofocus: true,
+                          textCapitalization: TextCapitalization.words,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelStyle:
+                                FlutterFlowTheme.of(context).labelMedium,
+                            hintText: FFLocalizations.of(context).getText(
+                              'tkhem64b' /* Enter Workout Name... */,
+                            ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            focusedErrorBorder: InputBorder.none,
+                          ),
+                          style: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).primaryText,
                               ),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          focusedErrorBorder: InputBorder.none,
+                          validator: _model.inputWorkoutNameControllerValidator
+                              .asValidator(context),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z]'))
+                          ],
                         ),
-                        style: FlutterFlowTheme.of(context)
-                            .titleMedium
-                            .override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                            ),
-                        validator: _model.inputWorkoutNameControllerValidator
-                            .asValidator(context),
                       ),
                     ),
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      await WorkoutsRecord.createDoc(currentUserReference!)
-                          .set({
-                        ...createWorkoutsRecordData(
-                          name: FFAppState().workout.name,
-                          timestamp: getCurrentTimestamp,
-                          duration: _model.timerMilliseconds,
-                        ),
-                        'exercises': getExerciseListFirestoreData(
-                          FFAppState().workout.exercises,
-                        ),
-                      });
+                      if (_model.formKey.currentState == null ||
+                          !_model.formKey.currentState!.validate()) {
+                        return;
+                      }
                       HapticFeedback.heavyImpact();
                       var confirmDialogResponse = await showDialog<bool>(
                             context: context,
@@ -167,6 +171,18 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                       if (!confirmDialogResponse) {
                         return;
                       }
+
+                      await WorkoutsRecord.createDoc(currentUserReference!)
+                          .set({
+                        ...createWorkoutsRecordData(
+                          name: FFAppState().workout.name,
+                          timestamp: getCurrentTimestamp,
+                          duration: _model.timerMilliseconds,
+                        ),
+                        'exercises': getExerciseListFirestoreData(
+                          FFAppState().workout.exercises,
+                        ),
+                      });
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(

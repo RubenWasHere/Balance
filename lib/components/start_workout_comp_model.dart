@@ -22,9 +22,30 @@ import 'package:provider/provider.dart';
 class StartWorkoutCompModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for inputWorkoutName widget.
   TextEditingController? inputWorkoutNameController;
   String? Function(BuildContext, String?)? inputWorkoutNameControllerValidator;
+  String? _inputWorkoutNameControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'olt2vsis' /* Please Enter Workout Name */,
+      );
+    }
+
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
+    }
+    if (val.length > 12) {
+      return FFLocalizations.of(context).getText(
+        'fnsrvhbk' /* Workout Name Too Long (1-12 Ch... */,
+      );
+    }
+
+    return null;
+  }
+
   // State field(s) for Timer widget.
   int timerMilliseconds = 0;
   String timerValue = StopWatchTimer.getDisplayTime(
@@ -42,6 +63,7 @@ class StartWorkoutCompModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    inputWorkoutNameControllerValidator = _inputWorkoutNameControllerValidator;
     inputWeightModels = FlutterFlowDynamicModels(() => InputWeightModel());
     inputRepsModels = FlutterFlowDynamicModels(() => InputRepsModel());
   }
