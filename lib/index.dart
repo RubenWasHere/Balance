@@ -11,3 +11,4 @@ export '/pages/history/history_widget.dart' show HistoryWidget;
 export '/pages/current_workout/current_workout_widget.dart'
     show CurrentWorkoutWidget;
 export '/pages/exercises/exercises_widget.dart' show ExercisesWidget;
+export '/pages/timer/timer_widget.dart' show TimerWidget;

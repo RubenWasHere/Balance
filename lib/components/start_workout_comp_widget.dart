@@ -138,6 +138,24 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                    child: FlutterFlowIconButton(
+                      borderColor: Color(0xFF5EC5FF),
+                      borderRadius: 20.0,
+                      borderWidth: 1.0,
+                      buttonSize: 40.0,
+                      icon: Icon(
+                        Icons.timer_sharp,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24.0,
+                      ),
+                      onPressed: () async {
+                        context.pushNamed('timer');
+                      },
+                    ),
+                  ),
                   FFButtonWidget(
                     onPressed: () async {
                       if (_model.formKey.currentState == null ||
@@ -199,7 +217,7 @@ class _StartWorkoutCompWidgetState extends State<StartWorkoutCompWidget> {
                       Navigator.pop(context);
                     },
                     text: FFLocalizations.of(context).getText(
-                      '3fk3irae' /* FINISH */,
+                      'k411gtq4' /* FINISH */,
                     ),
                     options: FFButtonOptions(
                       height: 40.0,

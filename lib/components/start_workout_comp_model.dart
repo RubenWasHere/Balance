@@ -30,7 +30,7 @@ class StartWorkoutCompModel extends FlutterFlowModel {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'olt2vsis' /* Please Enter Workout Name */,
+        'uely6csh' /* Please Enter Workout Name */,
       );
     }
 
@@ -39,7 +39,7 @@ class StartWorkoutCompModel extends FlutterFlowModel {
     }
     if (val.length > 12) {
       return FFLocalizations.of(context).getText(
-        'fnsrvhbk' /* Workout Name Too Long (1-12 Ch... */,
+        'j1y8e9m4' /* Workout Name Too Long (1-12 Ch... */,
       );
     }
 

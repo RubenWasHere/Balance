@@ -147,6 +147,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Exercises',
           path: '/exercises',
           builder: (context, params) => ExercisesWidget(),
+        ),
+        FFRoute(
+          name: 'timer',
+          path: '/timer',
+          builder: (context, params) => TimerWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

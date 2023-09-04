@@ -254,9 +254,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                               ),
                               yAxisLabelInfo: AxisLabelInfo(
                                 showLabels: true,
-                                labelInterval: 10.0,
+                                labelInterval: 2.0,
                                 labelFormatter: LabelFormatter(
-                                  numberFormat: (val) => val.toString(),
+                                  numberFormat: (val) => formatNumber(
+                                    val,
+                                    formatType: FormatType.compact,
+                                  ),
                                 ),
                               ),
                             ),
