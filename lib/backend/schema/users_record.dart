@@ -51,6 +51,11 @@ class UsersRecord extends FirestoreRecord {
   Color? get colour => _colour;
   bool hasColour() => _colour != null;
 
+  // "timer_sound" field.
+  String? _timerSound;
+  String get timerSound => _timerSound ?? '';
+  bool hasTimerSound() => _timerSound != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -59,6 +64,7 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _colour = getSchemaColor(snapshotData['colour']);
+    _timerSound = snapshotData['timer_sound'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -102,6 +108,7 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? createdTime,
   String? phoneNumber,
   Color? colour,
+  String? timerSound,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -112,6 +119,7 @@ Map<String, dynamic> createUsersRecordData({
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'colour': colour,
+      'timer_sound': timerSound,
     }.withoutNulls,
   );
 
@@ -129,7 +137,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.colour == e2?.colour;
+        e1?.colour == e2?.colour &&
+        e1?.timerSound == e2?.timerSound;
   }
 
   @override
@@ -140,7 +149,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.uid,
         e?.createdTime,
         e?.phoneNumber,
-        e?.colour
+        e?.colour,
+        e?.timerSound
       ]);
 
   @override

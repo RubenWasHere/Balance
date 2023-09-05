@@ -406,7 +406,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
                                               isScrollControlled: true,
                                               backgroundColor:
                                                   Colors.transparent,
+                                              isDismissible: false,
                                               enableDrag: false,
+                                              useSafeArea: true,
                                               context: context,
                                               builder: (context) {
                                                 return GestureDetector(

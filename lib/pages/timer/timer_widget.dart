@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -114,6 +115,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                                 if (shouldUpdate) setState(() {});
                               },
                               onEnded: () async {
+                                HapticFeedback.vibrate();
                                 _model.soundPlayer ??= AudioPlayer();
                                 if (_model.soundPlayer!.playing) {
                                   await _model.soundPlayer!.stop();
@@ -123,6 +125,21 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     .setAsset(
                                         'assets/audios/Boxing_Bell_Sound_Effect.mp3')
                                     .then((_) => _model.soundPlayer!.play());
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'hiiiiiiii',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 9950),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
                               },
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)

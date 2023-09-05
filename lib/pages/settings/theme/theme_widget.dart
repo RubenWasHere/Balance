@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -70,7 +69,7 @@ class _ThemeWidgetState extends State<ThemeWidget> {
             ),
             title: Text(
               FFLocalizations.of(context).getText(
-                'jg3z5ja1' /* Theme */,
+                'tpia5kmq' /* Theme */,
               ),
               style: FlutterFlowTheme.of(context).bodyLarge.override(
                     fontFamily: 'Readex Pro',
@@ -88,90 +87,10 @@ class _ThemeWidgetState extends State<ThemeWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 3.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 1.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 16.0, 16.0, 16.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 90.0,
-                            height: 90.0,
-                            decoration: BoxDecoration(
-                              color: Color(0x00FFFFFF),
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Color(0xFFFF9200),
-                                width: 2.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  2.0, 2.0, 2.0, 2.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50.0),
-                                child: CachedNetworkImage(
-                                  fadeInDuration: Duration(milliseconds: 100),
-                                  fadeOutDuration: Duration(milliseconds: 100),
-                                  imageUrl: valueOrDefault<String>(
-                                    currentUserPhoto,
-                                    'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
-                                  ),
-                                  width: 60.0,
-                                  height: 60.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  currentUserDisplayName,
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 0.0),
-                                  child: Text(
-                                    currentUserEmail,
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelMedium,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'ibuj4bsj' /* Theme */,
+                      'dkkbirww' /* Theme */,
                     ),
                     style: FlutterFlowTheme.of(context).labelLarge,
                   ),
@@ -214,7 +133,7 @@ class _ThemeWidgetState extends State<ThemeWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'j3qrz6ly' /* Light */,
+                                  'iyti6mve' /* Light */,
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyLarge,
                               ),
@@ -277,7 +196,7 @@ class _ThemeWidgetState extends State<ThemeWidget> {
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'vanr44g0' /* Dark */,
+                                      'd7a53mj4' /* Dark */,
                                     ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyLarge,
@@ -362,7 +281,7 @@ class _ThemeWidgetState extends State<ThemeWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '8wmoz7jn' /* Custom Background */,
+                                  'lcojn7xy' /* Custom Background */,
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyLarge,
                               ),

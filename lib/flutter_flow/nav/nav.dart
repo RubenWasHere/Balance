@@ -129,11 +129,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SignInWidget(),
         ),
         FFRoute(
-          name: 'Theme',
-          path: '/theme',
-          builder: (context, params) => ThemeWidget(),
-        ),
-        FFRoute(
           name: 'History',
           path: '/history',
           builder: (context, params) => HistoryWidget(),
@@ -152,6 +147,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'timer',
           path: '/timer',
           builder: (context, params) => TimerWidget(),
+        ),
+        FFRoute(
+          name: 'Theme',
+          path: '/theme',
+          builder: (context, params) => ThemeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
